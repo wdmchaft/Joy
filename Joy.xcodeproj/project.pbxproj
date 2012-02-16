@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0406BD5A14ED320000A02F52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406BD5914ED320000A02F52 /* UIKit.framework */; };
+		0406BD5C14ED320000A02F52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406BD5B14ED320000A02F52 /* Foundation.framework */; };
+		0406BD5E14ED320000A02F52 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406BD5D14ED320000A02F52 /* CoreGraphics.framework */; };
+		0406BD6014ED320000A02F52 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406BD5F14ED320000A02F52 /* CoreData.framework */; };
+		0406BD6614ED320000A02F52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0406BD6414ED320000A02F52 /* InfoPlist.strings */; };
+		0406BD6914ED320000A02F52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD6814ED320000A02F52 /* main.m */; };
+		0406BD6C14ED320000A02F52 /* JoyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD6B14ED320000A02F52 /* JoyAppDelegate.m */; };
+		0406BD6F14ED320000A02F52 /* Joy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD6D14ED320000A02F52 /* Joy.xcdatamodeld */; };
+		0406BD7314ED320000A02F52 /* JoyAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD7214ED320000A02F52 /* JoyAppDelegate_iPhone.m */; };
+		0406BD7614ED320000A02F52 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0406BD7414ED320000A02F52 /* MainWindow_iPhone.xib */; };
+		0406BD7A14ED320000A02F52 /* JoyAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD7914ED320000A02F52 /* JoyAppDelegate_iPad.m */; };
+		0406BD7D14ED320000A02F52 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0406BD7B14ED320000A02F52 /* MainWindow_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0406BD5514ED320000A02F52 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0406BD5914ED320000A02F52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0406BD5B14ED320000A02F52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0406BD5D14ED320000A02F52 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0406BD5F14ED320000A02F52 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0406BD6314ED320000A02F52 /* Joy-Info.plist */ = {isa = PBXFileReference; path = "Joy-Info.plist"; sourceTree = "<group>"; };
+		0406BD6514ED320000A02F52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0406BD6714ED320000A02F52 /* Joy-Prefix.pch */ = {isa = PBXFileReference; path = "Joy-Prefix.pch"; sourceTree = "<group>"; };
+		0406BD6814ED320000A02F52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0406BD6A14ED320000A02F52 /* JoyAppDelegate.h */ = {isa = PBXFileReference; path = JoyAppDelegate.h; sourceTree = "<group>"; };
+		0406BD6B14ED320000A02F52 /* JoyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoyAppDelegate.m; sourceTree = "<group>"; };
+		0406BD6E14ED320000A02F52 /* Joy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Joy.xcdatamodel; sourceTree = "<group>"; };
+		0406BD7114ED320000A02F52 /* JoyAppDelegate_iPhone.h */ = {isa = PBXFileReference; name = JoyAppDelegate_iPhone.h; path = iPhone/JoyAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		0406BD7214ED320000A02F52 /* JoyAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoyAppDelegate_iPhone.m; path = iPhone/JoyAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		0406BD7514ED320000A02F52 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		0406BD7814ED320000A02F52 /* JoyAppDelegate_iPad.h */ = {isa = PBXFileReference; name = JoyAppDelegate_iPad.h; path = iPad/JoyAppDelegate_iPad.h; sourceTree = "<group>"; };
+		0406BD7914ED320000A02F52 /* JoyAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoyAppDelegate_iPad.m; path = iPad/JoyAppDelegate_iPad.m; sourceTree = "<group>"; };
+		0406BD7C14ED320000A02F52 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0406BD5214ED320000A02F52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406BD5A14ED320000A02F52 /* UIKit.framework in Frameworks */,
+				0406BD5C14ED320000A02F52 /* Foundation.framework in Frameworks */,
+				0406BD5E14ED320000A02F52 /* CoreGraphics.framework in Frameworks */,
+				0406BD6014ED320000A02F52 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0406BD4A14ED320000A02F52 = {
+			isa = PBXGroup;
+			children = (
+				0406BD6114ED320000A02F52 /* Joy */,
+				0406BD5814ED320000A02F52 /* Frameworks */,
+				0406BD5614ED320000A02F52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0406BD5614ED320000A02F52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD5514ED320000A02F52 /* Joy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0406BD5814ED320000A02F52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD5914ED320000A02F52 /* UIKit.framework */,
+				0406BD5B14ED320000A02F52 /* Foundation.framework */,
+				0406BD5D14ED320000A02F52 /* CoreGraphics.framework */,
+				0406BD5F14ED320000A02F52 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0406BD6114ED320000A02F52 /* Joy */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD6A14ED320000A02F52 /* JoyAppDelegate.h */,
+				0406BD6B14ED320000A02F52 /* JoyAppDelegate.m */,
+				0406BD6D14ED320000A02F52 /* Joy.xcdatamodeld */,
+				0406BD7014ED320000A02F52 /* iPhone */,
+				0406BD7714ED320000A02F52 /* iPad */,
+				0406BD6214ED320000A02F52 /* Supporting Files */,
+			);
+			path = Joy;
+			sourceTree = "<group>";
+		};
+		0406BD6214ED320000A02F52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD6314ED320000A02F52 /* Joy-Info.plist */,
+				0406BD6414ED320000A02F52 /* InfoPlist.strings */,
+				0406BD6714ED320000A02F52 /* Joy-Prefix.pch */,
+				0406BD6814ED320000A02F52 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0406BD7014ED320000A02F52 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD7114ED320000A02F52 /* JoyAppDelegate_iPhone.h */,
+				0406BD7214ED320000A02F52 /* JoyAppDelegate_iPhone.m */,
+				0406BD7414ED320000A02F52 /* MainWindow_iPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		0406BD7714ED320000A02F52 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD7814ED320000A02F52 /* JoyAppDelegate_iPad.h */,
+				0406BD7914ED320000A02F52 /* JoyAppDelegate_iPad.m */,
+				0406BD7B14ED320000A02F52 /* MainWindow_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0406BD5414ED320000A02F52 /* Joy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0406BD8014ED320000A02F52 /* Build configuration list for PBXNativeTarget "Joy" */;
+			buildPhases = (
+				0406BD5114ED320000A02F52 /* Sources */,
+				0406BD5214ED320000A02F52 /* Frameworks */,
+				0406BD5314ED320000A02F52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Joy;
+			productName = Joy;
+			productReference = 0406BD5514ED320000A02F52 /* Joy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0406BD4C14ED320000A02F52 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 0406BD4F14ED320000A02F52 /* Build configuration list for PBXProject "Joy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0406BD4A14ED320000A02F52;
+			productRefGroup = 0406BD5614ED320000A02F52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0406BD5414ED320000A02F52 /* Joy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0406BD5314ED320000A02F52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406BD6614ED320000A02F52 /* InfoPlist.strings in Resources */,
+				0406BD7614ED320000A02F52 /* MainWindow_iPhone.xib in Resources */,
+				0406BD7D14ED320000A02F52 /* MainWindow_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0406BD5114ED320000A02F52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0406BD6914ED320000A02F52 /* main.m in Sources */,
+				0406BD6C14ED320000A02F52 /* JoyAppDelegate.m in Sources */,
+				0406BD6F14ED320000A02F52 /* Joy.xcdatamodeld in Sources */,
+				0406BD7314ED320000A02F52 /* JoyAppDelegate_iPhone.m in Sources */,
+				0406BD7A14ED320000A02F52 /* JoyAppDelegate_iPad.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0406BD6414ED320000A02F52 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0406BD6514ED320000A02F52 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0406BD7414ED320000A02F52 /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0406BD7514ED320000A02F52 /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		0406BD7B14ED320000A02F52 /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0406BD7C14ED320000A02F52 /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0406BD7E14ED320000A02F52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0406BD7F14ED320000A02F52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0406BD8114ED320000A02F52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Joy/Joy-Prefix.pch";
+				INFOPLIST_FILE = "Joy/Joy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0406BD8214ED320000A02F52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Joy/Joy-Prefix.pch";
+				INFOPLIST_FILE = "Joy/Joy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0406BD4F14ED320000A02F52 /* Build configuration list for PBXProject "Joy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0406BD7E14ED320000A02F52 /* Debug */,
+				0406BD7F14ED320000A02F52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0406BD8014ED320000A02F52 /* Build configuration list for PBXNativeTarget "Joy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0406BD8114ED320000A02F52 /* Debug */,
+				0406BD8214ED320000A02F52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0406BD6D14ED320000A02F52 /* Joy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0406BD6E14ED320000A02F52 /* Joy.xcdatamodel */,
+			);
+			currentVersion = 0406BD6E14ED320000A02F52 /* Joy.xcdatamodel */;
+			path = Joy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0406BD4C14ED320000A02F52 /* Project object */;
+}
