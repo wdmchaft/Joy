@@ -27,17 +27,17 @@
 		0406BD5B14ED320000A02F52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0406BD5D14ED320000A02F52 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0406BD5F14ED320000A02F52 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		0406BD6314ED320000A02F52 /* Joy-Info.plist */ = {isa = PBXFileReference; path = "Joy-Info.plist"; sourceTree = "<group>"; };
+		0406BD6314ED320000A02F52 /* Joy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Joy-Info.plist"; sourceTree = "<group>"; };
 		0406BD6514ED320000A02F52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0406BD6714ED320000A02F52 /* Joy-Prefix.pch */ = {isa = PBXFileReference; path = "Joy-Prefix.pch"; sourceTree = "<group>"; };
+		0406BD6714ED320000A02F52 /* Joy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Joy-Prefix.pch"; sourceTree = "<group>"; };
 		0406BD6814ED320000A02F52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0406BD6A14ED320000A02F52 /* JoyAppDelegate.h */ = {isa = PBXFileReference; path = JoyAppDelegate.h; sourceTree = "<group>"; };
+		0406BD6A14ED320000A02F52 /* JoyAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoyAppDelegate.h; sourceTree = "<group>"; };
 		0406BD6B14ED320000A02F52 /* JoyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoyAppDelegate.m; sourceTree = "<group>"; };
 		0406BD6E14ED320000A02F52 /* Joy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Joy.xcdatamodel; sourceTree = "<group>"; };
-		0406BD7114ED320000A02F52 /* JoyAppDelegate_iPhone.h */ = {isa = PBXFileReference; name = JoyAppDelegate_iPhone.h; path = iPhone/JoyAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		0406BD7114ED320000A02F52 /* JoyAppDelegate_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoyAppDelegate_iPhone.h; path = iPhone/JoyAppDelegate_iPhone.h; sourceTree = "<group>"; };
 		0406BD7214ED320000A02F52 /* JoyAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoyAppDelegate_iPhone.m; path = iPhone/JoyAppDelegate_iPhone.m; sourceTree = "<group>"; };
 		0406BD7514ED320000A02F52 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
-		0406BD7814ED320000A02F52 /* JoyAppDelegate_iPad.h */ = {isa = PBXFileReference; name = JoyAppDelegate_iPad.h; path = iPad/JoyAppDelegate_iPad.h; sourceTree = "<group>"; };
+		0406BD7814ED320000A02F52 /* JoyAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoyAppDelegate_iPad.h; path = iPad/JoyAppDelegate_iPad.h; sourceTree = "<group>"; };
 		0406BD7914ED320000A02F52 /* JoyAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoyAppDelegate_iPad.m; path = iPad/JoyAppDelegate_iPad.m; sourceTree = "<group>"; };
 		0406BD7C14ED320000A02F52 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
