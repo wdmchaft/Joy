@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "JoyAppDelegate.h"
+#import "UserDefaultKeySet.h"
+#import "CoverRootController_iPhone.h"
+#import "RootViewController_iPhone.h"
 
-@interface JoyAppDelegate_iPhone : JoyAppDelegate {
-    
+@interface JoyAppDelegate_iPhone : JoyAppDelegate <UINavigationControllerDelegate>{
+    UITabBarController *tabBarController;
+    UINavigationController *navigationController;
 }
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
+- (void) MakeSureWhichControllerShouldBeOpen;
+- (void) CoverControllerShouldOpen;
+- (void) JoyControllerShouldOpen;
 @end
