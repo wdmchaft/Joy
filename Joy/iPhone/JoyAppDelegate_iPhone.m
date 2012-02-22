@@ -23,21 +23,21 @@
     
     }
     */
-    [self CoverControllerShouldOpen];
+    [self coverControllerShouldOpen];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 
-- (void) MakeSureWhichControllerShouldBeOpen{
+- (void) makeSureWhichControllerShouldBeOpen{
 
 }
 
-- (void) CoverControllerShouldOpen{
+- (void) coverControllerShouldOpen{
     self.window.rootViewController = self.tabBarController;
 }
 
-- (void) JoyControllerShouldOpen{
+- (void) joyControllerShouldOpen{
     RootViewController_iPhone *rootViewController = [[RootViewController_iPhone alloc] initWithNibName:@"RootViewController_iPhone" bundle:nil];
     rootViewController.title = @"Sex Positions";
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];

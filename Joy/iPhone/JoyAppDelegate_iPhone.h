@@ -13,12 +13,12 @@
 #import "RootViewController_iPhone.h"
 
 @interface JoyAppDelegate_iPhone : JoyAppDelegate <UINavigationControllerDelegate>{
-    UITabBarController *tabBarController;
-    UINavigationController *navigationController;
+    UITabBarController      *   tabBarController;
+    UINavigationController  *   navigationController;
 }
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
-- (void) MakeSureWhichControllerShouldBeOpen;
-- (void) CoverControllerShouldOpen;
-- (void) JoyControllerShouldOpen;
+- (void) makeSureWhichControllerShouldBeOpen;
+- (void) coverControllerShouldOpen;
+- (void) joyControllerShouldOpen;
 @end

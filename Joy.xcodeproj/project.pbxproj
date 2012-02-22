@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0405E49914F14D1B0049ED9C /* SQLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0405E49814F14D1B0049ED9C /* SQLData.m */; };
 		0406BD5A14ED320000A02F52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406BD5914ED320000A02F52 /* UIKit.framework */; };
 		0406BD5C14ED320000A02F52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406BD5B14ED320000A02F52 /* Foundation.framework */; };
 		0406BD5E14ED320000A02F52 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406BD5D14ED320000A02F52 /* CoreGraphics.framework */; };
@@ -19,9 +20,65 @@
 		0406BD7614ED320000A02F52 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0406BD7414ED320000A02F52 /* MainWindow_iPhone.xib */; };
 		0406BD7A14ED320000A02F52 /* JoyAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD7914ED320000A02F52 /* JoyAppDelegate_iPad.m */; };
 		0406BD7D14ED320000A02F52 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0406BD7B14ED320000A02F52 /* MainWindow_iPad.xib */; };
+		0406BD9E14ED37EF00A02F52 /* SQLiteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BD9D14ED37EF00A02F52 /* SQLiteOperation.m */; };
+		0406BDA314ED3AFB00A02F52 /* CoverRootController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BDA114ED3AFB00A02F52 /* CoverRootController_iPhone.m */; };
+		0406BDA414ED3AFB00A02F52 /* CoverRootController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0406BDA214ED3AFB00A02F52 /* CoverRootController_iPhone.xib */; };
+		0406BDC614ED4EA100A02F52 /* UserDefaultKeySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406BDC514ED4EA100A02F52 /* UserDefaultKeySet.m */; };
+		040F5D0014F339D9009171E2 /* categorytab.png in Resources */ = {isa = PBXBuildFile; fileRef = 040F5CFF14F339D9009171E2 /* categorytab.png */; };
+		040F5D0D14F37AF6009171E2 /* GreyBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 040F5D0C14F37AF6009171E2 /* GreyBar.png */; };
+		040F5D0F14F37B01009171E2 /* WhiteBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 040F5D0E14F37B01009171E2 /* WhiteBar.png */; };
+		040F5D1114F37E66009171E2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 040F5D1014F37E66009171E2 /* arrow.png */; };
+		040F5D1414F3A1E3009171E2 /* GreyBar_Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 040F5D1214F3A1E3009171E2 /* GreyBar_Large.png */; };
+		040F5D1514F3A1E3009171E2 /* WhiteBar_Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 040F5D1314F3A1E3009171E2 /* WhiteBar_Large.png */; };
+		040F5D2414F3FDC8009171E2 /* CoverHideController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F5D2214F3FDC7009171E2 /* CoverHideController_iPhone.m */; };
+		040F5D2514F3FDC8009171E2 /* CoverHideController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040F5D2314F3FDC7009171E2 /* CoverHideController_iPhone.xib */; };
+		040FF07D14F482DC0077B459 /* back_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 040FF07C14F482DC0077B459 /* back_button_pressed.png */; };
+		040FF08014F48FB60077B459 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 040FF07F14F48FB60077B459 /* backButton.png */; };
+		040FF08214F490880077B459 /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040FF08114F490880077B459 /* backButton@2x.png */; };
+		0426838A14F2873600205111 /* whiteBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0426838914F2873600205111 /* whiteBox.png */; };
+		04EF35CF14EE3F2E0074E7D8 /* RootViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF35CD14EE3F2E0074E7D8 /* RootViewController_iPhone.m */; };
+		04EF35D014EE3F2E0074E7D8 /* RootViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF35CE14EE3F2E0074E7D8 /* RootViewController_iPhone.xib */; };
+		04EF35D314EE42100074E7D8 /* SexDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04EF35D214EE42100074E7D8 /* SexDatabase.sqlite */; };
+		04EF35DD14EE47240074E7D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35DC14EE47240074E7D8 /* CoreLocation.framework */; };
+		04EF35DF14EE473B0074E7D8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35DE14EE473B0074E7D8 /* libz.dylib */; };
+		04EF35E114EE47440074E7D8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35E014EE47440074E7D8 /* AudioToolbox.framework */; };
+		04EF35E314EE47540074E7D8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35E214EE47540074E7D8 /* libsqlite3.0.dylib */; };
+		04EF35E514EE476C0074E7D8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35E414EE476C0074E7D8 /* CFNetwork.framework */; };
+		04EF35E714EE47760074E7D8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35E614EE47760074E7D8 /* AVFoundation.framework */; };
+		04EF35EE14EE47A60074E7D8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35E814EE47A50074E7D8 /* MessageUI.framework */; };
+		04EF35EF14EE47A60074E7D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35E914EE47A50074E7D8 /* MobileCoreServices.framework */; };
+		04EF35F014EE47A60074E7D8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35EA14EE47A50074E7D8 /* QuartzCore.framework */; };
+		04EF35F114EE47A60074E7D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35EB14EE47A50074E7D8 /* Security.framework */; };
+		04EF35F214EE47A60074E7D8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35EC14EE47A60074E7D8 /* StoreKit.framework */; };
+		04EF35F314EE47A60074E7D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF35ED14EE47A60074E7D8 /* SystemConfiguration.framework */; };
+		04EF35F714EE49400074E7D8 /* CoverCateController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF35F514EE493F0074E7D8 /* CoverCateController_iPhone.m */; };
+		04EF35F814EE49400074E7D8 /* CoverCateController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF35F614EE49400074E7D8 /* CoverCateController_iPhone.xib */; };
+		04EF35FC14EE49630074E7D8 /* CoverFavController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF35FA14EE49620074E7D8 /* CoverFavController_iPhone.m */; };
+		04EF35FD14EE49630074E7D8 /* CoverFavController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF35FB14EE49620074E7D8 /* CoverFavController_iPhone.xib */; };
+		04EF360114EE49800074E7D8 /* CoverSearchController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF35FF14EE49800074E7D8 /* CoverSearchController_iPhone.m */; };
+		04EF360214EE49800074E7D8 /* CoverSearchController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360014EE49800074E7D8 /* CoverSearchController_iPhone.xib */; };
+		04EF360C14EE4AB60074E7D8 /* category_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360414EE4AB60074E7D8 /* category_tab.png */; };
+		04EF360D14EE4AB70074E7D8 /* category_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360514EE4AB60074E7D8 /* category_tab@2x.png */; };
+		04EF360E14EE4AB70074E7D8 /* content_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360614EE4AB60074E7D8 /* content_tab.png */; };
+		04EF360F14EE4AB70074E7D8 /* content_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360714EE4AB60074E7D8 /* content_tab@2x.png */; };
+		04EF361014EE4AB70074E7D8 /* favorite_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360814EE4AB60074E7D8 /* favorite_tab.png */; };
+		04EF361114EE4AB70074E7D8 /* favorite_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360914EE4AB60074E7D8 /* favorite_tab@2x.png */; };
+		04EF361214EE4AB70074E7D8 /* search_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360A14EE4AB60074E7D8 /* search_tab.png */; };
+		04EF361314EE4AB70074E7D8 /* search_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF360B14EE4AB60074E7D8 /* search_tab@2x.png */; };
+		04EF361614EE4E200074E7D8 /* topbar_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF361414EE4E200074E7D8 /* topbar_ipad.png */; };
+		04EF361714EE4E210074E7D8 /* topbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF361514EE4E200074E7D8 /* topbar.png */; };
+		04EF361914EE4ED80074E7D8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04EF361814EE4ED70074E7D8 /* background.jpg */; };
+		04EF361D14EE51920074E7D8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF361C14EE51920074E7D8 /* Utils.m */; };
+		04EF362314EE53960074E7D8 /* 3ight_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF361E14EE53940074E7D8 /* 3ight_pressed.png */; };
+		04EF362414EE53960074E7D8 /* favorite_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF361F14EE53950074E7D8 /* favorite_pressed.png */; };
+		04EF362514EE53960074E7D8 /* mail_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF362014EE53950074E7D8 /* mail_pressed.png */; };
+		04EF362614EE53960074E7D8 /* no_favorite_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF362114EE53960074E7D8 /* no_favorite_pressed.png */; };
+		04EF362714EE53960074E7D8 /* settings_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EF362214EE53960074E7D8 /* settings_pressed.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0405E49714F14D1B0049ED9C /* SQLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLData.h; sourceTree = "<group>"; };
+		0405E49814F14D1B0049ED9C /* SQLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLData.m; sourceTree = "<group>"; };
 		0406BD5514ED320000A02F52 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0406BD5914ED320000A02F52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0406BD5B14ED320000A02F52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,6 +97,72 @@
 		0406BD7814ED320000A02F52 /* JoyAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoyAppDelegate_iPad.h; path = iPad/JoyAppDelegate_iPad.h; sourceTree = "<group>"; };
 		0406BD7914ED320000A02F52 /* JoyAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoyAppDelegate_iPad.m; path = iPad/JoyAppDelegate_iPad.m; sourceTree = "<group>"; };
 		0406BD7C14ED320000A02F52 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+		0406BD9414ED375100A02F52 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		0406BD9514ED375100A02F52 /* GTMObjectSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMObjectSingleton.h; sourceTree = "<group>"; };
+		0406BD9C14ED37EF00A02F52 /* SQLiteOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteOperation.h; sourceTree = "<group>"; };
+		0406BD9D14ED37EF00A02F52 /* SQLiteOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteOperation.m; sourceTree = "<group>"; };
+		0406BDA014ED3AFB00A02F52 /* CoverRootController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverRootController_iPhone.h; sourceTree = "<group>"; };
+		0406BDA114ED3AFB00A02F52 /* CoverRootController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverRootController_iPhone.m; sourceTree = "<group>"; };
+		0406BDA214ED3AFB00A02F52 /* CoverRootController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverRootController_iPhone.xib; sourceTree = "<group>"; };
+		0406BDC414ED4EA100A02F52 /* UserDefaultKeySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultKeySet.h; sourceTree = "<group>"; };
+		0406BDC514ED4EA100A02F52 /* UserDefaultKeySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultKeySet.m; sourceTree = "<group>"; };
+		040F5CFF14F339D9009171E2 /* categorytab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categorytab.png; sourceTree = "<group>"; };
+		040F5D0C14F37AF6009171E2 /* GreyBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreyBar.png; sourceTree = "<group>"; };
+		040F5D0E14F37B01009171E2 /* WhiteBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhiteBar.png; sourceTree = "<group>"; };
+		040F5D1014F37E66009171E2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		040F5D1214F3A1E3009171E2 /* GreyBar_Large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreyBar_Large.png; sourceTree = "<group>"; };
+		040F5D1314F3A1E3009171E2 /* WhiteBar_Large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhiteBar_Large.png; sourceTree = "<group>"; };
+		040F5D2114F3FDC6009171E2 /* CoverHideController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverHideController_iPhone.h; sourceTree = "<group>"; };
+		040F5D2214F3FDC7009171E2 /* CoverHideController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverHideController_iPhone.m; sourceTree = "<group>"; };
+		040F5D2314F3FDC7009171E2 /* CoverHideController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverHideController_iPhone.xib; sourceTree = "<group>"; };
+		040FF07C14F482DC0077B459 /* back_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_button_pressed.png; sourceTree = "<group>"; };
+		040FF07F14F48FB60077B459 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
+		040FF08114F490880077B459 /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
+		0426838914F2873600205111 /* whiteBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteBox.png; sourceTree = "<group>"; };
+		04EF35C914EE3C160074E7D8 /* CFGLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFGLog.h; sourceTree = "<group>"; };
+		04EF35CC14EE3F2E0074E7D8 /* RootViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController_iPhone.h; sourceTree = "<group>"; };
+		04EF35CD14EE3F2E0074E7D8 /* RootViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController_iPhone.m; sourceTree = "<group>"; };
+		04EF35CE14EE3F2E0074E7D8 /* RootViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController_iPhone.xib; sourceTree = "<group>"; };
+		04EF35D214EE42100074E7D8 /* SexDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SexDatabase.sqlite; sourceTree = "<group>"; };
+		04EF35DC14EE47240074E7D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		04EF35DE14EE473B0074E7D8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		04EF35E014EE47440074E7D8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		04EF35E214EE47540074E7D8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		04EF35E414EE476C0074E7D8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		04EF35E614EE47760074E7D8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		04EF35E814EE47A50074E7D8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		04EF35E914EE47A50074E7D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		04EF35EA14EE47A50074E7D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		04EF35EB14EE47A50074E7D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		04EF35EC14EE47A60074E7D8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		04EF35ED14EE47A60074E7D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		04EF35F414EE493F0074E7D8 /* CoverCateController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverCateController_iPhone.h; sourceTree = "<group>"; };
+		04EF35F514EE493F0074E7D8 /* CoverCateController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverCateController_iPhone.m; sourceTree = "<group>"; };
+		04EF35F614EE49400074E7D8 /* CoverCateController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverCateController_iPhone.xib; sourceTree = "<group>"; };
+		04EF35F914EE49620074E7D8 /* CoverFavController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverFavController_iPhone.h; sourceTree = "<group>"; };
+		04EF35FA14EE49620074E7D8 /* CoverFavController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverFavController_iPhone.m; sourceTree = "<group>"; };
+		04EF35FB14EE49620074E7D8 /* CoverFavController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverFavController_iPhone.xib; sourceTree = "<group>"; };
+		04EF35FE14EE497F0074E7D8 /* CoverSearchController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverSearchController_iPhone.h; sourceTree = "<group>"; };
+		04EF35FF14EE49800074E7D8 /* CoverSearchController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverSearchController_iPhone.m; sourceTree = "<group>"; };
+		04EF360014EE49800074E7D8 /* CoverSearchController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverSearchController_iPhone.xib; sourceTree = "<group>"; };
+		04EF360414EE4AB60074E7D8 /* category_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category_tab.png; sourceTree = "<group>"; };
+		04EF360514EE4AB60074E7D8 /* category_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_tab@2x.png"; sourceTree = "<group>"; };
+		04EF360614EE4AB60074E7D8 /* content_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = content_tab.png; sourceTree = "<group>"; };
+		04EF360714EE4AB60074E7D8 /* content_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "content_tab@2x.png"; sourceTree = "<group>"; };
+		04EF360814EE4AB60074E7D8 /* favorite_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_tab.png; sourceTree = "<group>"; };
+		04EF360914EE4AB60074E7D8 /* favorite_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_tab@2x.png"; sourceTree = "<group>"; };
+		04EF360A14EE4AB60074E7D8 /* search_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_tab.png; sourceTree = "<group>"; };
+		04EF360B14EE4AB60074E7D8 /* search_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_tab@2x.png"; sourceTree = "<group>"; };
+		04EF361414EE4E200074E7D8 /* topbar_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar_ipad.png; sourceTree = "<group>"; };
+		04EF361514EE4E200074E7D8 /* topbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar.png; sourceTree = "<group>"; };
+		04EF361814EE4ED70074E7D8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		04EF361B14EE51920074E7D8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		04EF361C14EE51920074E7D8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		04EF361E14EE53940074E7D8 /* 3ight_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3ight_pressed.png; sourceTree = "<group>"; };
+		04EF361F14EE53950074E7D8 /* favorite_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_pressed.png; sourceTree = "<group>"; };
+		04EF362014EE53950074E7D8 /* mail_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail_pressed.png; sourceTree = "<group>"; };
+		04EF362114EE53960074E7D8 /* no_favorite_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_favorite_pressed.png; sourceTree = "<group>"; };
+		04EF362214EE53960074E7D8 /* settings_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_pressed.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +170,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EF35EE14EE47A60074E7D8 /* MessageUI.framework in Frameworks */,
+				04EF35EF14EE47A60074E7D8 /* MobileCoreServices.framework in Frameworks */,
+				04EF35F014EE47A60074E7D8 /* QuartzCore.framework in Frameworks */,
+				04EF35F114EE47A60074E7D8 /* Security.framework in Frameworks */,
+				04EF35F214EE47A60074E7D8 /* StoreKit.framework in Frameworks */,
+				04EF35F314EE47A60074E7D8 /* SystemConfiguration.framework in Frameworks */,
+				04EF35E714EE47760074E7D8 /* AVFoundation.framework in Frameworks */,
+				04EF35E514EE476C0074E7D8 /* CFNetwork.framework in Frameworks */,
+				04EF35E314EE47540074E7D8 /* libsqlite3.0.dylib in Frameworks */,
+				04EF35E114EE47440074E7D8 /* AudioToolbox.framework in Frameworks */,
+				04EF35DF14EE473B0074E7D8 /* libz.dylib in Frameworks */,
+				04EF35DD14EE47240074E7D8 /* CoreLocation.framework in Frameworks */,
 				0406BD5A14ED320000A02F52 /* UIKit.framework in Frameworks */,
 				0406BD5C14ED320000A02F52 /* Foundation.framework in Frameworks */,
 				0406BD5E14ED320000A02F52 /* CoreGraphics.framework in Frameworks */,
@@ -60,6 +195,10 @@
 		0406BD4A14ED320000A02F52 = {
 			isa = PBXGroup;
 			children = (
+				04EF361A14EE51660074E7D8 /* Utils */,
+				0406BDC314ED4DA500A02F52 /* JoyConfig */,
+				0406BD9B14ED37EF00A02F52 /* sqliteLib */,
+				0406BD9314ED375100A02F52 /* googleToolkit */,
 				0406BD6114ED320000A02F52 /* Joy */,
 				0406BD5814ED320000A02F52 /* Frameworks */,
 				0406BD5614ED320000A02F52 /* Products */,
@@ -77,6 +216,18 @@
 		0406BD5814ED320000A02F52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04EF35E814EE47A50074E7D8 /* MessageUI.framework */,
+				04EF35E914EE47A50074E7D8 /* MobileCoreServices.framework */,
+				04EF35EA14EE47A50074E7D8 /* QuartzCore.framework */,
+				04EF35EB14EE47A50074E7D8 /* Security.framework */,
+				04EF35EC14EE47A60074E7D8 /* StoreKit.framework */,
+				04EF35ED14EE47A60074E7D8 /* SystemConfiguration.framework */,
+				04EF35E614EE47760074E7D8 /* AVFoundation.framework */,
+				04EF35E414EE476C0074E7D8 /* CFNetwork.framework */,
+				04EF35E214EE47540074E7D8 /* libsqlite3.0.dylib */,
+				04EF35E014EE47440074E7D8 /* AudioToolbox.framework */,
+				04EF35DE14EE473B0074E7D8 /* libz.dylib */,
+				04EF35DC14EE47240074E7D8 /* CoreLocation.framework */,
 				0406BD5914ED320000A02F52 /* UIKit.framework */,
 				0406BD5B14ED320000A02F52 /* Foundation.framework */,
 				0406BD5D14ED320000A02F52 /* CoreGraphics.framework */,
@@ -101,10 +252,12 @@
 		0406BD6214ED320000A02F52 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04EF360314EE49A40074E7D8 /* CoverSource */,
 				0406BD6314ED320000A02F52 /* Joy-Info.plist */,
 				0406BD6414ED320000A02F52 /* InfoPlist.strings */,
 				0406BD6714ED320000A02F52 /* Joy-Prefix.pch */,
 				0406BD6814ED320000A02F52 /* main.m */,
+				04EF35D114EE41FA0074E7D8 /* Database */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -112,6 +265,8 @@
 		0406BD7014ED320000A02F52 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				04EF35CB14EE3F130074E7D8 /* Joy_iPhone */,
+				0406BD9F14ED39B000A02F52 /* Cover_iPhone */,
 				0406BD7114ED320000A02F52 /* JoyAppDelegate_iPhone.h */,
 				0406BD7214ED320000A02F52 /* JoyAppDelegate_iPhone.m */,
 				0406BD7414ED320000A02F52 /* MainWindow_iPhone.xib */,
@@ -127,6 +282,120 @@
 				0406BD7B14ED320000A02F52 /* MainWindow_iPad.xib */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		0406BD9314ED375100A02F52 /* googleToolkit */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD9414ED375100A02F52 /* GTMDefines.h */,
+				0406BD9514ED375100A02F52 /* GTMObjectSingleton.h */,
+			);
+			path = googleToolkit;
+			sourceTree = "<group>";
+		};
+		0406BD9B14ED37EF00A02F52 /* sqliteLib */ = {
+			isa = PBXGroup;
+			children = (
+				0406BD9C14ED37EF00A02F52 /* SQLiteOperation.h */,
+				0406BD9D14ED37EF00A02F52 /* SQLiteOperation.m */,
+				0405E49714F14D1B0049ED9C /* SQLData.h */,
+				0405E49814F14D1B0049ED9C /* SQLData.m */,
+			);
+			path = sqliteLib;
+			sourceTree = "<group>";
+		};
+		0406BD9F14ED39B000A02F52 /* Cover_iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				0406BDA014ED3AFB00A02F52 /* CoverRootController_iPhone.h */,
+				0406BDA114ED3AFB00A02F52 /* CoverRootController_iPhone.m */,
+				0406BDA214ED3AFB00A02F52 /* CoverRootController_iPhone.xib */,
+				04EF35F414EE493F0074E7D8 /* CoverCateController_iPhone.h */,
+				04EF35F514EE493F0074E7D8 /* CoverCateController_iPhone.m */,
+				04EF35F614EE49400074E7D8 /* CoverCateController_iPhone.xib */,
+				04EF35F914EE49620074E7D8 /* CoverFavController_iPhone.h */,
+				04EF35FA14EE49620074E7D8 /* CoverFavController_iPhone.m */,
+				04EF35FB14EE49620074E7D8 /* CoverFavController_iPhone.xib */,
+				04EF35FE14EE497F0074E7D8 /* CoverSearchController_iPhone.h */,
+				04EF35FF14EE49800074E7D8 /* CoverSearchController_iPhone.m */,
+				04EF360014EE49800074E7D8 /* CoverSearchController_iPhone.xib */,
+				040F5D2114F3FDC6009171E2 /* CoverHideController_iPhone.h */,
+				040F5D2214F3FDC7009171E2 /* CoverHideController_iPhone.m */,
+				040F5D2314F3FDC7009171E2 /* CoverHideController_iPhone.xib */,
+			);
+			name = Cover_iPhone;
+			path = iPhone/Cover_iPhone;
+			sourceTree = "<group>";
+		};
+		0406BDC314ED4DA500A02F52 /* JoyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				0406BDC414ED4EA100A02F52 /* UserDefaultKeySet.h */,
+				0406BDC514ED4EA100A02F52 /* UserDefaultKeySet.m */,
+				04EF35C914EE3C160074E7D8 /* CFGLog.h */,
+			);
+			path = JoyConfig;
+			sourceTree = "<group>";
+		};
+		04EF35CB14EE3F130074E7D8 /* Joy_iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				04EF35CC14EE3F2E0074E7D8 /* RootViewController_iPhone.h */,
+				04EF35CD14EE3F2E0074E7D8 /* RootViewController_iPhone.m */,
+				04EF35CE14EE3F2E0074E7D8 /* RootViewController_iPhone.xib */,
+			);
+			name = Joy_iPhone;
+			path = iPhone/Joy_iPhone;
+			sourceTree = "<group>";
+		};
+		04EF35D114EE41FA0074E7D8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				04EF35D214EE42100074E7D8 /* SexDatabase.sqlite */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		04EF360314EE49A40074E7D8 /* CoverSource */ = {
+			isa = PBXGroup;
+			children = (
+				040FF08114F490880077B459 /* backButton@2x.png */,
+				040FF07F14F48FB60077B459 /* backButton.png */,
+				040FF07C14F482DC0077B459 /* back_button_pressed.png */,
+				040F5D1214F3A1E3009171E2 /* GreyBar_Large.png */,
+				040F5D1314F3A1E3009171E2 /* WhiteBar_Large.png */,
+				040F5D1014F37E66009171E2 /* arrow.png */,
+				040F5D0E14F37B01009171E2 /* WhiteBar.png */,
+				040F5D0C14F37AF6009171E2 /* GreyBar.png */,
+				040F5CFF14F339D9009171E2 /* categorytab.png */,
+				0426838914F2873600205111 /* whiteBox.png */,
+				04EF361E14EE53940074E7D8 /* 3ight_pressed.png */,
+				04EF361F14EE53950074E7D8 /* favorite_pressed.png */,
+				04EF362014EE53950074E7D8 /* mail_pressed.png */,
+				04EF362114EE53960074E7D8 /* no_favorite_pressed.png */,
+				04EF362214EE53960074E7D8 /* settings_pressed.png */,
+				04EF361814EE4ED70074E7D8 /* background.jpg */,
+				04EF361414EE4E200074E7D8 /* topbar_ipad.png */,
+				04EF361514EE4E200074E7D8 /* topbar.png */,
+				04EF360414EE4AB60074E7D8 /* category_tab.png */,
+				04EF360514EE4AB60074E7D8 /* category_tab@2x.png */,
+				04EF360614EE4AB60074E7D8 /* content_tab.png */,
+				04EF360714EE4AB60074E7D8 /* content_tab@2x.png */,
+				04EF360814EE4AB60074E7D8 /* favorite_tab.png */,
+				04EF360914EE4AB60074E7D8 /* favorite_tab@2x.png */,
+				04EF360A14EE4AB60074E7D8 /* search_tab.png */,
+				04EF360B14EE4AB60074E7D8 /* search_tab@2x.png */,
+			);
+			path = CoverSource;
+			sourceTree = "<group>";
+		};
+		04EF361A14EE51660074E7D8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				04EF361B14EE51920074E7D8 /* Utils.h */,
+				04EF361C14EE51920074E7D8 /* Utils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +448,39 @@
 				0406BD6614ED320000A02F52 /* InfoPlist.strings in Resources */,
 				0406BD7614ED320000A02F52 /* MainWindow_iPhone.xib in Resources */,
 				0406BD7D14ED320000A02F52 /* MainWindow_iPad.xib in Resources */,
+				0406BDA414ED3AFB00A02F52 /* CoverRootController_iPhone.xib in Resources */,
+				04EF35D014EE3F2E0074E7D8 /* RootViewController_iPhone.xib in Resources */,
+				04EF35D314EE42100074E7D8 /* SexDatabase.sqlite in Resources */,
+				04EF35F814EE49400074E7D8 /* CoverCateController_iPhone.xib in Resources */,
+				04EF35FD14EE49630074E7D8 /* CoverFavController_iPhone.xib in Resources */,
+				04EF360214EE49800074E7D8 /* CoverSearchController_iPhone.xib in Resources */,
+				04EF360C14EE4AB60074E7D8 /* category_tab.png in Resources */,
+				04EF360D14EE4AB70074E7D8 /* category_tab@2x.png in Resources */,
+				04EF360E14EE4AB70074E7D8 /* content_tab.png in Resources */,
+				04EF360F14EE4AB70074E7D8 /* content_tab@2x.png in Resources */,
+				04EF361014EE4AB70074E7D8 /* favorite_tab.png in Resources */,
+				04EF361114EE4AB70074E7D8 /* favorite_tab@2x.png in Resources */,
+				04EF361214EE4AB70074E7D8 /* search_tab.png in Resources */,
+				04EF361314EE4AB70074E7D8 /* search_tab@2x.png in Resources */,
+				04EF361614EE4E200074E7D8 /* topbar_ipad.png in Resources */,
+				04EF361714EE4E210074E7D8 /* topbar.png in Resources */,
+				04EF361914EE4ED80074E7D8 /* background.jpg in Resources */,
+				04EF362314EE53960074E7D8 /* 3ight_pressed.png in Resources */,
+				04EF362414EE53960074E7D8 /* favorite_pressed.png in Resources */,
+				04EF362514EE53960074E7D8 /* mail_pressed.png in Resources */,
+				04EF362614EE53960074E7D8 /* no_favorite_pressed.png in Resources */,
+				04EF362714EE53960074E7D8 /* settings_pressed.png in Resources */,
+				0426838A14F2873600205111 /* whiteBox.png in Resources */,
+				040F5D0014F339D9009171E2 /* categorytab.png in Resources */,
+				040F5D0D14F37AF6009171E2 /* GreyBar.png in Resources */,
+				040F5D0F14F37B01009171E2 /* WhiteBar.png in Resources */,
+				040F5D1114F37E66009171E2 /* arrow.png in Resources */,
+				040F5D1414F3A1E3009171E2 /* GreyBar_Large.png in Resources */,
+				040F5D1514F3A1E3009171E2 /* WhiteBar_Large.png in Resources */,
+				040F5D2514F3FDC8009171E2 /* CoverHideController_iPhone.xib in Resources */,
+				040FF07D14F482DC0077B459 /* back_button_pressed.png in Resources */,
+				040FF08014F48FB60077B459 /* backButton.png in Resources */,
+				040FF08214F490880077B459 /* backButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +496,16 @@
 				0406BD6F14ED320000A02F52 /* Joy.xcdatamodeld in Sources */,
 				0406BD7314ED320000A02F52 /* JoyAppDelegate_iPhone.m in Sources */,
 				0406BD7A14ED320000A02F52 /* JoyAppDelegate_iPad.m in Sources */,
+				0406BD9E14ED37EF00A02F52 /* SQLiteOperation.m in Sources */,
+				0406BDA314ED3AFB00A02F52 /* CoverRootController_iPhone.m in Sources */,
+				0406BDC614ED4EA100A02F52 /* UserDefaultKeySet.m in Sources */,
+				04EF35CF14EE3F2E0074E7D8 /* RootViewController_iPhone.m in Sources */,
+				04EF35F714EE49400074E7D8 /* CoverCateController_iPhone.m in Sources */,
+				04EF35FC14EE49630074E7D8 /* CoverFavController_iPhone.m in Sources */,
+				04EF360114EE49800074E7D8 /* CoverSearchController_iPhone.m in Sources */,
+				04EF361D14EE51920074E7D8 /* Utils.m in Sources */,
+				0405E49914F14D1B0049ED9C /* SQLData.m in Sources */,
+				040F5D2414F3FDC8009171E2 /* CoverHideController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +620,7 @@
 				0406BD8214ED320000A02F52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

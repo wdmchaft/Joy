@@ -2,14 +2,14 @@
 //  JoyAppDelegate.h
 //  Joy
 //
-//  Created by mac on 12-2-16.
+//  Created by wordsworth on 12-2-16.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface JoyAppDelegate : NSObject <UIApplicationDelegate> {
-
+    NSInteger COVER_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
