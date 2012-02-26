@@ -27,7 +27,8 @@
 - (void)dealloc
 {
     [jokeList release];
-    [tbView release];
+    [tbView removeFromSuperview];
+    NSLog(@"favcontroller dealloc");
     [super dealloc];
 }
 
@@ -51,7 +52,7 @@
     [self.view addSubview:topbarView];
     [topbarView release];
     
-    UILabel * topLabel = [Utils addLabelToView:CGRectMake(0, 0, 320, 60) :0 :[UIColor clearColor] :@"Favorites" :UITextAlignmentCenter :[UIColor blackColor]:[UIFont fontWithName:@"TrebuchetMS-Bold" size:22]];
+    UILabel * topLabel = [Utils addCoverLabelToView:CGRectMake(0, 0, 320, 60) :0 :[UIColor clearColor] :@"Favorites" :UITextAlignmentCenter :[UIColor blackColor]:[UIFont fontWithName:@"TrebuchetMS-Bold" size:22]];
     [self.view addSubview:topLabel];
     [topLabel release];
     
@@ -59,13 +60,13 @@
     tbView.dataSource   =   self;
     tbView.delegate     =   self;
     [self.view addSubview:tbView];
+    [tbView release];
     
     switch (tabBarFlag) {
         case 1:   
             jokeList = [[SQLData sharedSQLData] getCoverAllContentList];
             break;
         case 2:
-            NSLog(@"text %d",cateFlag);
             jokeList = [[SQLData sharedSQLData] getCoverPartContentList:[[SQLData sharedSQLData] getCoverCateStringFromArray:cateFlag]];
             topLabel.text = [[SQLData sharedSQLData] getCoverCateStringFromArray:cateFlag];            
             break;
@@ -77,7 +78,7 @@
     }
     
     if (tabBarFlag == 2) {
-        UIButton * button   =   [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(20, 15, 25, 25) :0 :[UIImage imageNamed:@"backButton@2x.png"] :nil];
+        UIButton * button   =   [Utils addCoverButtonToView:UIButtonTypeCustom :CGRectMake(20, 15, 25, 25) :0 :[UIImage imageNamed:@"backButton@2x.png"] :nil];
         [button addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
@@ -126,7 +127,7 @@
     CLog(@"check if this done");
     UILabel * label                     =   (UILabel *)[cell viewWithTag:10];
     if (label == nil) {
-        UILabel * label                 =   [Utils addLabelToView:CGRectMake(10, 0, 280, 70):10 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:1] :UITextAlignmentLeft :[UIColor blackColor] :[UIFont fontWithName:@"TrebuchetMS-Bold" size:14]];
+        UILabel * label                 =   [Utils addCoverLabelToView:CGRectMake(10, 0, 280, 70):10 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:1] :UITextAlignmentLeft :[UIColor blackColor] :[UIFont fontWithName:@"TrebuchetMS-Bold" size:14]];
         label.numberOfLines             =   3;
         [[cell contentView] addSubview:label];
         [label release];
@@ -136,7 +137,7 @@
     
     UILabel * cateLabel                 =   (UILabel *)[cell viewWithTag:11];
     if (cateLabel ==nil) {
-        UILabel * cateLabel             =   [Utils addLabelToView:CGRectMake(200, 65, 100, 15):11 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:2] :UITextAlignmentCenter:[UIColor blueColor] :[UIFont fontWithName:@"Courier-BoldOblique" size:11]];
+        UILabel * cateLabel             =   [Utils addCoverLabelToView:CGRectMake(200, 65, 100, 15):11 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:2] :UITextAlignmentCenter:[UIColor blueColor] :[UIFont fontWithName:@"Courier-BoldOblique" size:11]];
         [[cell contentView] addSubview:cateLabel];
         [cateLabel release];
     }else{
@@ -147,7 +148,7 @@
     CLog(@"%@", label.text);
     NSString * path                     =   [[NSBundle mainBundle] pathForResource:@"arrow" ofType:@"png"];
     UIImage * image                     =   [UIImage imageWithContentsOfFile:path];
-    UIImageView * imageView             =   [Utils addImageViewToView:CGRectMake(280, 20, 35, 35) :image :0 :1.0];
+    UIImageView * imageView             =   [Utils addCoverImageViewToView:CGRectMake(280, 20, 35, 35) :image :0 :1.0];
     [cell addSubview:imageView];
     [imageView release];
     return cell;

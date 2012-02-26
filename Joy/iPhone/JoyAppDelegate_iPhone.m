@@ -23,7 +23,8 @@
     
     }
     */
-    [self coverControllerShouldOpen];
+    //[self coverControllerShouldOpen];
+    [self joyControllerShouldOpen];
     [self.window makeKeyAndVisible];
     return YES;
 }

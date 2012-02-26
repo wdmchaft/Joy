@@ -23,8 +23,7 @@
 }
 
 - (void)dealloc
-{
-    [tbView release];
+{   
     [super dealloc];
 }
 
@@ -47,7 +46,7 @@
     [self.view addSubview:topbarView];
     [topbarView release];
     
-    UILabel * topLabel = [Utils addLabelToView:CGRectMake(0, 0, 320, 60) :0 :[UIColor clearColor] :@"Categories" :UITextAlignmentCenter :[UIColor blackColor]:[UIFont fontWithName:@"TrebuchetMS-Bold" size:22]];
+    UILabel * topLabel = [Utils addCoverLabelToView:CGRectMake(0, 0, 320, 60) :0 :[UIColor clearColor] :@"Categories" :UITextAlignmentCenter :[UIColor blackColor]:[UIFont fontWithName:@"TrebuchetMS-Bold" size:22]];
     [self.view addSubview:topLabel];
     [topLabel release];
     
@@ -55,11 +54,11 @@
     tbView.dataSource   =   self;
     tbView.delegate     =   self;
     [self.view addSubview:tbView];
+    [tbView release];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    CLog(@"%d", self.tabBarController.tabBarItem.tag);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -88,7 +87,7 @@
     cell.textLabel.text                 =   [[[SQLData sharedSQLData] cateArray] objectAtIndex:indexPath.row];
     NSString * path                     =   [[NSBundle mainBundle] pathForResource:@"arrow" ofType:@"png"];
     UIImage * image                     =   [UIImage imageWithContentsOfFile:path];
-    UIImageView * imageView             =   [Utils addImageViewToView:CGRectMake(280, 10, 35, 35) :image :0 :1.0];
+    UIImageView * imageView             =   [Utils addCoverImageViewToView:CGRectMake(280, 10, 35, 35) :image :0 :1.0];
     [cell addSubview:imageView];
     [imageView release];
     return cell;

@@ -7,18 +7,56 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import <MessageUI/MessageUI.h>
+#import "JoyAppDelegate.h"
 //COVER_SHOW_INTERVAL define the tag gap of the control target in scrollView 
 #define COVER_SHOW_INTERVAL 20000
+#define RATE_STRING @""
+#define Background_iPhone   @"Item_background.jpg"
+#define Background_iPad     @"blackbackground_ipad.jpg"
+#define ITEM_BK_PHONE       @"btn_report.png"
+#define ButtonCheck         @"check.png"
+#define ButtonChecked       @"checked.png"
+#define ButtonStar          @"star.png"
+#define ButtonStared        @"starred.png"
+#define ButtonTodo          @"todo.png"
+#define ButtonTodoed        @"todoed.png"
+#define LevelStar           @"level_start.png"
+#define TapPlayFileName     @"tap.mp3"
+#define ScrollDetails       @"scrolldetail.png"
 
-@interface Utils : NSObject {
+@interface Utils : NSObject <MFMailComposeViewControllerDelegate>{
     
 }
 //public method to init a Button
-+ (UIButton *)      addButtonToView:(id)buttonType:(CGRect)frameSize:(NSInteger)tag:(UIImage *)upImage:(UIImage *)downImage;
++ (UIButton *)      addCoverButtonToView:(id)buttonType:(CGRect)frameSize:(NSInteger)tag:(UIImage *)upImage:(UIImage *)downImage;
 //public method to init a label
-+ (UILabel *)       addLabelToView:(CGRect)frameSize:(NSInteger)tag:(UIColor *)bgcolor:(NSString *)text:(UITextAlignment)alignment:(UIColor *)textColor:(UIFont *)font;
++ (UILabel *)       addCoverLabelToView:(CGRect)frameSize:(NSInteger)tag:(UIColor *)bgcolor:(NSString *)text:(UITextAlignment)alignment:(UIColor *)textColor:(UIFont *)font;
 //public method to init a textView
-+ (UITextView *)    addTextViewToView:(CGRect)frameSize:(NSInteger)tag:(UIColor *)bgcolor:(NSString *)text:(BOOL)editable:(BOOL)scrollEnable:(BOOL)endEditing:(UIFont *)font:(UIColor *)textColor;
++ (UITextView *)    addCoverTextViewToView:(CGRect)frameSize:(NSInteger)tag:(UIColor *)bgcolor:(NSString *)text:(BOOL)editable:(BOOL)scrollEnable:(BOOL)endEditing:(UIFont *)font:(UIColor *)textColor;
 //public method to init a imageView
-+ (UIImageView *)   addImageViewToView:(CGRect)frameSize:(UIImage *)image:(NSInteger)tag:(CGFloat)alpha;
++ (UIImageView *)   addCoverImageViewToView:(CGRect)frameSize:(UIImage *)image:(NSInteger)tag:(CGFloat)alpha;
+//change audioPlayer if needed
++ (AVAudioPlayer *) addCoverAVAudioPlayer:(AVAudioPlayer *)audioPlayer;
+//judge whether soundplayer could play a sound
++ (BOOL) ifSoundPlayerCouldPlay;
+
+//public method to init a Button
++ (UIButton *) addButtonToView:(id)buttonType:(CGRect)frameSize:(NSInteger)tag:(UIImage *)upImage:(UIImage *)downImage;
+//public method to init a Label
++ (UILabel *) addLabelToView:(CGRect)frameSize:(NSInteger)tag:(NSString *)title:(CGFloat)size;
+//public method to init a ImageView
++ (UIImageView *) addImageViewToView:(CGRect)frameSize:(NSInteger)tag:(UIImage *)image;
+//public method to init a ImageViewWithOutImage
++ (UIImageView *) addImageViewToViewWithoutImage:(CGRect)frameSize:(NSInteger)tag;
+//public method to init a TextView
++ (UITextView *) addTextViewToView:(CGRect)frameSize:(NSInteger)tag:(CGFloat)size:(UIColor *)BkColor:(UIColor *)textColor;
+//another way to add Label
++ (UILabel *) addButtonLabelToView:(CGRect)frameSize:(NSInteger)tag:(NSString *)title:(CGFloat)size:(UIColor *)textColor;
+//init a sound player
++ (AVAudioPlayer *) initSoundPlayer:(NSString *)soundFileName:(NSInteger)loopsNum;
+//stop a sound player
++ (void)stopSoundPlayer:(AVAudioPlayer *)player;
+
 @end

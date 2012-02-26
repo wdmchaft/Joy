@@ -40,6 +40,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.COVER_SLIDER_VALUE  = 14.0;
+    appDelegate.COVER_SOUND_FLAG    = YES;
     if (self.tabBarItem.tag == 1) {
         CoverRootController_iPhone * coverRootController_iphone =  [[CoverRootController_iPhone alloc] initWithNibName:@"CoverRootController_iPhone" bundle:nil];
         navigationController    =   [[UINavigationController alloc] initWithRootViewController:coverRootController_iphone];

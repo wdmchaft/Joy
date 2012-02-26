@@ -10,6 +10,11 @@
 
 @implementation JoyAppDelegate
 
+@synthesize COVER_SLIDER_VALUE;
+@synthesize COVER_SOUND_FLAG;
+@synthesize JOY_SOUND_FLAG;
+@synthesize JOY_PASSWORD_FLAG;
+@synthesize RATE_TO_UNLOCK;
 
 @synthesize window=_window;
 
