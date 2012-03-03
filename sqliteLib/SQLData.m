@@ -80,9 +80,16 @@ GTMOBJECT_SINGLETON_BOILERPLATE(SQLData, sharedSQLData)
 - (NSMutableArray *)   getSelectImageInfoList{
     return  [[[SQLiteOperation sharedSQLOpt] selectData:@"select id,poseId,picName from sexImage order by poseId asc" resultColumns:3] retain];
 }
+- (NSMutableArray *)   getSelectUnDoneInfoListWithoutPurchase{
+    return [[[SQLiteOperation sharedSQLOpt] selectData:SelectUnDoneInfoListWithoutPurchase resultColumns:10] retain];
+}
+- (NSMutableArray *)   getSelectAllInfoListWithoutPurchase{
+    return [[[SQLiteOperation sharedSQLOpt] selectData:SelectAllWithoutPurchase resultColumns:10] retain];
+}
+
 - (BOOL) updateParamarrayWithSqlString:(NSString *)sqlString withIndex:(NSString *)indexNum{
     NSArray *paramarray = [[NSArray alloc] initWithObjects:indexNum, nil];
-    return [[SQLiteOperation sharedSQLOpt] dealData:@"UPDATE joke SET favouriteFlag=? WHERE indexNum=?" paramArray:paramarray];
+    return [[SQLiteOperation sharedSQLOpt] dealData:sqlString paramArray:paramarray];
 }
 - (NSMutableArray *)   getSelectInfoBySliderWithSqlString:(NSString *)sqlString{
     return [[[SQLiteOperation sharedSQLOpt] selectData:sqlString resultColumns:10] retain];

@@ -46,7 +46,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:Background_iPad]];
     UILabel * pleasureLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 150, 300, 65)];
     pleasureLabel.font = [UIFont systemFontOfSize:28.0];
-    pleasureLabel.text = @"Pleasure";
+    pleasureLabel.text = @"趣味性";
     pleasureLabel.textColor = [UIColor whiteColor];
     pleasureLabel.backgroundColor = [UIColor clearColor];
     [self.view addSubview:pleasureLabel];
@@ -59,7 +59,7 @@
     [pleasureSlider release];
     
     UILabel * challengeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 300, 300, 65)];
-    challengeLabel.text = @"Challenge";
+    challengeLabel.text = @"挑战性";
     challengeLabel.font = [UIFont systemFontOfSize:28.0];;
     challengeLabel.textColor = [UIColor whiteColor];
     challengeLabel.backgroundColor = [UIColor clearColor];
@@ -81,17 +81,24 @@
     button.frame = CGRectMake(300, 520, 168, 60);
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont systemFontOfSize:22.0];
-    [button setTitle:@"View Positions" forState:UIControlStateNormal];
+    [button setTitle:@"查找体位" forState:UIControlStateNormal];
     [self.view addSubview:button];
 }
 
 - (void)buttonPressed:(id)buttonSender{
     NSString * sql =[[NSString alloc] initWithFormat:@"select id,categoryId,name,thumbnail,instruction,challenge,pleasure,isMarkFavorite,isMarkDone,isMarkCheck from pose where challenge = %d and pleasure = %d",(int)challengeSlider.value,(int)pleasureSlider.value];
-    content = [[[SQLData sharedSQLData] getSelectInfoBySliderWithSqlString:sql] retain];
+    NSString * sql_part = [[NSString alloc] initWithFormat:@"select id,categoryId,name,thumbnail,instruction,challenge,pleasure,isMarkFavorite,isMarkDone,isMarkCheck from pose where challenge = %d and pleasure = %d and (categoryId = 1 or categoryId = 2 or categoryId = 4)",(int)challengeSlider.value,(int)pleasureSlider.value];
+    
+    BOOL isProUpgradePurchased = [[NSUserDefaults standardUserDefaults] boolForKey:@"isProUpgradePurchased"];
+    if(isProUpgradePurchased == NO){
+        content = [[[SQLData sharedSQLData] getSelectInfoBySliderWithSqlString:sql_part] retain];
+    }else{
+        content = [[[SQLData sharedSQLData] getSelectInfoBySliderWithSqlString:sql] retain];
+    }
     ItemViewController_iPad * itemViewController = [[ItemViewController_iPad alloc] initWithNibName:@"ItemViewController_iPad" bundle:nil];
     itemViewController.startFlag = 20;
     itemViewController.content = content;
-    itemViewController.title = @"Search";
+    itemViewController.title = @"搜索";
     [self.navigationController pushViewController:itemViewController animated:YES];
     [itemViewController release];
     

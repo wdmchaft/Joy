@@ -60,7 +60,9 @@
     if (tabBarFlag == 1) {
         self.navigationController.delegate = self;
     }
-    
+    if (tabBarFlag == 1) {
+        jokeList    =   [[SQLData sharedSQLData] getCoverAllContentList];
+    }
     
     //Init buttons on topBarView
     UIButton * moreButton = [Utils addCoverButtonToView: UIButtonTypeCustom:CGRectMake(10, -5, 60, 60) :COVER_SHOW_INTERVAL-1 :[UIImage imageNamed:@"3ight_pressed"] :nil];
@@ -112,9 +114,7 @@
         default:
             break;
     }*/
-    if (tabBarFlag == 1) {
-        jokeList    =   [[SQLData sharedSQLData] getCoverAllContentList];
-    }
+    
         
     [self initScrollView];
     [self addImageViewToScrllView:COVER_SHOW_INTERVAL];

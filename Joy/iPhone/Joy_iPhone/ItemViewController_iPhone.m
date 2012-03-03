@@ -48,8 +48,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Item_background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:Background_iPhone]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadContent) name:RATEUS_UNLOCK_COULD_UNLOCK_THIS_PRODUCT_NOW_NOTIFICATION object:nil];
+    /*
     JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (startFlag == 10) {
         if (appDelegate.RATE_TO_UNLOCK == 1) {
@@ -81,7 +82,19 @@
             [toast setGravity:iToastGravityBottom offsetLeft:0 offsetTop:150];
             [toast show];
         }
-    }    
+    }*/
+    [self initDataSource];
+    itemScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 960)];
+    [self.view addSubview:itemScrollView];
+    [itemScrollView release];
+    itemScrollView.contentSize = CGSizeMake(320, ([content count]/3+1)*100+550); 
+    [self initItemView];
+    itemScrollView.delegate = self;
+    if ([content count] == 0){
+        iToast  *toast = [iToast makeText:@"列表为空!"];
+        [toast setGravity:iToastGravityBottom offsetLeft:0 offsetTop:150];
+        [toast show];
+    }
 }
 
 - (void) cleanAllViews{
@@ -106,7 +119,7 @@
     [self initItemView];
     itemScrollView.delegate = self;
     if ([content count] == 0){
-        iToast  *toast = [iToast makeText:@"List is empty now!"];
+        iToast  *toast = [iToast makeText:@"列表为空!"];
         [toast setGravity:iToastGravityBottom offsetLeft:0 offsetTop:150];
         [toast show];
     }
@@ -152,7 +165,7 @@
         [self initItemView];
         itemScrollView.delegate = self;
         if ([content count] == 0){
-            iToast  *toast = [iToast makeText:@"List is empty now!"];
+            iToast  *toast = [iToast makeText:@"列表为空!"];
             [toast setGravity:iToastGravityBottom offsetLeft:0 offsetTop:150];
             [toast show];
         }
@@ -173,7 +186,16 @@
     }else if(startFlag == 12){
         content = [[SQLData sharedSQLData] getSelectDoneInfoList];
     }else if(startFlag == 13){
-        content = [[SQLData sharedSQLData] getSelectUnDoneInfoList];
+        /*
+         *If custom has already purchased this product, running getSelectUnDoneInfoList Part;
+         *else running getSelectUnDoneInfoListWithoutPurchase.
+         */
+        BOOL isProUpgradePurchased = [[NSUserDefaults standardUserDefaults] boolForKey:@"isProUpgradePurchased"];
+        if(isProUpgradePurchased == NO){
+            content = [[SQLData sharedSQLData] getSelectUnDoneInfoListWithoutPurchase];
+        }else{
+            content = [[SQLData sharedSQLData] getSelectUnDoneInfoList];
+        }
     }else if(startFlag == 14){
         content = [[SQLData sharedSQLData] getSelectTodoInfoList];
     }

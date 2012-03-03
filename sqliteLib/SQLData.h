@@ -18,6 +18,8 @@
 #define SelectUnDone    @"select id,categoryId,name,thumbnail,instruction,challenge,pleasure,isMarkFavorite,isMarkDone,isMarkCheck from pose where isMarkDone = 0"
 #define SelectTodo      @"select id,categoryId,name,thumbnail,instruction,challenge,pleasure,isMarkFavorite,isMarkDone,isMarkCheck from pose where isMarkCheck = 1"
 #define SelectAll       @"select id,categoryId,name,thumbnail,instruction,challenge,pleasure,isMarkFavorite,isMarkDone,isMarkCheck from pose"
+#define SelectUnDoneInfoListWithoutPurchase          @"select id,categoryId,name,thumbnail,instruction,challenge,pleasure,isMarkFavorite,isMarkDone,isMarkCheck from pose where isMarkDone = 0 and (categoryId = 1 or categoryId = 2 or categoryId = 4)"
+#define SelectAllWithoutPurchase    @"select id,categoryId,name,thumbnail,instruction,challenge,pleasure,isMarkFavorite,isMarkDone,isMarkCheck from pose where categoryId = 1 or categoryId = 2 or categoryId = 4"
 
 #define UpdateFavZero   @"UPDATE pose SET isMarkFavorite=0 WHERE id=?"
 #define UpdateFavOne    @"UPDATE pose SET isMarkFavorite=1 WHERE id=?"
@@ -55,6 +57,8 @@
 - (NSMutableArray *)   getSelectAllInfoList; 
 - (NSMutableArray *)   getSelectImageInfoList;
 - (NSMutableArray *)   getSelectInfoBySliderWithSqlString:(NSString *)sqlString; 
+- (NSMutableArray *)   getSelectUnDoneInfoListWithoutPurchase;
+- (NSMutableArray *)   getSelectAllInfoListWithoutPurchase; 
 
 - (BOOL)        updateParamarrayWithSqlString:(NSString *)sqlString withIndex:(NSString *)indexNum;
 - (BOOL)        updatePasswordFlag;

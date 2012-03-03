@@ -10,11 +10,14 @@
 #import "Utils.h"
 #import "SQLData.h"
 #import "CoverFavController_iPad.h"
+#import "Reachability.h"
+#import "InAppPurchaseManager.h"
 
 @interface CoverCateController_iPad : UIViewController <UITableViewDelegate,UITableViewDataSource>{
     //tabBarFlag is the flag to choose whether tabBar was choosen
     UITableView     *   tbView;
     NSInteger           tabBarFlag;
+    InAppPurchaseManager    *   inapp;
 }
 @property (nonatomic, retain) UITableView       *   tbView;
 @property (nonatomic)           NSInteger           tabBarFlag;
@@ -24,4 +27,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)manageIndappWithIndex:(NSInteger)indexNum;
+- (void)changeToItemViewControllerWithIndex:(NSInteger)indexNum;
 @end

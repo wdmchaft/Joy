@@ -15,6 +15,12 @@
 @synthesize JOY_SOUND_FLAG;
 @synthesize JOY_PASSWORD_FLAG;
 @synthesize RATE_TO_UNLOCK;
+@synthesize DATABASE_NAME;
+@synthesize SCROLLVIEW_HEIGHT;
+@synthesize IMAGEVIEW_HEIGHT;
+@synthesize TEXTVIEW_HEIGHT;
+@synthesize BUTTONVIEW_HEIGHT;
+@synthesize SCROLLVIEW_HEIGHT_F;
 
 @synthesize window=_window;
 
@@ -45,6 +51,7 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    self.JOY_PASSWORD_FLAG = 0;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -61,6 +68,10 @@
      */
 }
 
+- (NSString *)appKey{
+    return YOUMENG_MOB_ID;
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
@@ -69,6 +80,7 @@
 
 - (void)dealloc
 {
+    [DATABASE_NAME release];
     [_window release];
     [__managedObjectContext release];
     [__managedObjectModel release];

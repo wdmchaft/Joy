@@ -49,4 +49,23 @@
     return flag;
 }
 
++ (NSString *) getSignFromServer{
+    NSURL *url = [NSURL URLWithString:REQUEST_URL];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [ASIHTTPRequest setDefaultTimeOutSeconds:3];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString * response = [request responseString];
+        return response;
+    }else{
+        NSString * response = @"0";
+        return response;
+    }    
+}
+
++ (NSString *)  getAdSignFromServer{
+
+}
+
 @end

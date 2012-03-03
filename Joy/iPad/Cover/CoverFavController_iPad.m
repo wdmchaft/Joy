@@ -79,6 +79,9 @@
         [button addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
+    if (tabBarFlag == 3) {
+        self.navigationController.delegate = self;
+    }
 }
 
 - (void)viewDidUnload
@@ -86,6 +89,23 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    
+    if (tabBarFlag == 3) {
+        jokeList = nil;
+        jokeList = [[SQLData sharedSQLData] getCoverFavoriteContentList];
+    }
+    [tbView reloadData];
+}
+
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (tabBarFlag == 3) {
+        jokeList = nil;
+        jokeList = [[SQLData sharedSQLData] getCoverFavoriteContentList];
+    }
+    [tbView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -121,10 +141,9 @@
      cell.textLabel.text                 =   [[jokeList objectAtIndex:indexPath.row] objectAtIndex:1];
      cell.textLabel.numberOfLines        =   3;
      */ 
-    CLog(@"check if this done");
     UILabel * label                     =   (UILabel *)[cell viewWithTag:10];
     if (label == nil) {
-        UILabel * label                 =   [Utils addCoverLabelToView:CGRectMake(20, 5, 650, 100):10 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:1] :UITextAlignmentLeft :[UIColor blackColor] :[UIFont fontWithName:@"TrebuchetMS-Bold" size:14]];
+        UILabel * label                 =   [Utils addCoverLabelToView:CGRectMake(20, 5, 650, 100):10 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:1] :UITextAlignmentLeft :[UIColor blackColor] :[UIFont fontWithName:@"TrebuchetMS-Bold" size:18]];
         label.numberOfLines             =   3;
         [[cell contentView] addSubview:label];
         [label release];
@@ -134,7 +153,7 @@
     
     UILabel * cateLabel                 =   (UILabel *)[cell viewWithTag:11];
     if (cateLabel ==nil) {
-        UILabel * cateLabel             =   [Utils addCoverLabelToView:CGRectMake(620, 100, 100, 20):11 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:2] :UITextAlignmentCenter:[UIColor blueColor] :[UIFont fontWithName:@"Courier-BoldOblique" size:11]];
+        UILabel * cateLabel             =   [Utils addCoverLabelToView:CGRectMake(620, 100, 100, 20):11 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:2] :UITextAlignmentCenter:[UIColor blueColor] :[UIFont fontWithName:@"Courier-BoldOblique" size:13]];
         [[cell contentView] addSubview:cateLabel];
         [cateLabel release];
     }else{

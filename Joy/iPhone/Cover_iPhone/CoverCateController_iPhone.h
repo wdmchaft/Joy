@@ -10,11 +10,13 @@
 #import "Utils.h"
 #import "SQLData.h"
 #import "CoverFavController_iPhone.h"
-
+#import "Reachability.h"
+#import "InAppPurchaseManager.h"
 
 @interface CoverCateController_iPhone : UIViewController <UITableViewDelegate,UITableViewDataSource>{
     UITableView     *   tbView;
     NSInteger           tabBarFlag;
+    InAppPurchaseManager    *   inapp;
 }
 @property (nonatomic, retain) UITableView       *   tbView;
 @property (nonatomic)           NSInteger           tabBarFlag;
@@ -24,4 +26,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)manageIndappWithIndex:(NSInteger)indexNum;
+- (void)changeToItemViewControllerWithIndex:(NSInteger)indexNum;
 @end

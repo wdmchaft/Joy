@@ -38,7 +38,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Item_background.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:Background_iPhone]];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"评分" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];          
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [rightButton release];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -56,10 +60,25 @@
     }
 }
 
+- (void)rightButtonPressed:(id)rightSender{
+    JoyAppDelegate * appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.RATE_TO_UNLOCK = 1;
+    [UserDefaultKeySet saveToUserDefaults:[NSString stringWithFormat:@"%d", 1] forKey:@"haveUserRated"];
+    [[UIApplication sharedApplication] 
+     openURL:[NSURL URLWithString:RATE_STRING]];
+}
+
 - (void) initItems{
-    NSArray *upButtonImageArray = [[NSArray alloc] initWithObjects:@"categories.png",@"favorite.png",@"hints.png",@"tried.png",@"untried.png",@"todoicon.png",@"random.png",@"places.png",@"securityactive.png",nil];
-    NSArray *downButtonImageArray = [[NSArray alloc] initWithObjects:@"categoriesdown.png",@"favoritedown.png",@"hintsdown.png",@"trieddown.png",@"untrieddown.png",@"todoicondown.png",@"randomdown.png",@"placesdown.png",@"securityactive.png",nil];
-    labelTitle = [[NSArray alloc] initWithObjects:@"Category",@"Favorite",@"Top",@"Tried",@"Untried",@"Todo",@"Random",@"Search",@"Security",nil];
+    //NSArray *upButtonImageArray = [[NSArray alloc] initWithObjects:@"categories_p.png",@"favorite_p.png",@"hints_p.png",@"tried_p.png",@"untried_p.png",@"todoicon_p.png",@"random_p.png",@"search_p.png",@"securityactive_p.png",nil];
+    NSArray *upButtonImageArray = [[NSArray alloc] initWithObjects:@"home.png",@"favorite.png",@"hints.png",@"tried.png",@"untried.png",@"todoicon.png",@"random.png",@"search.png",@"securityactive.png",nil];
+    NSArray *downButtonImageArray = [[NSArray alloc] initWithObjects:@"categories_p.png",@"favorite_p.png",@"hints_p.png",@"tried_p.png",@"untried_p.png",@"todoicon_p.png",@"random_p.png",@"search_p.png",@"securityactive_p.png",nil];
+    JoyAppDelegate * appDelegate    = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([appDelegate.DATABASE_NAME isEqualToString:DATABASE_CH]) {
+        labelTitle = [[NSArray alloc] initWithObjects:@"目录",@"喜欢",@"最受欢迎",@"已尝试",@"未尝试",@"即将尝试",@"随机",@"搜索",@"安全",nil];
+    }else{
+        labelTitle = [[NSArray alloc] initWithObjects:@"Category",@"Favorite",@"Top",@"Tried",@"Untried",@"Todo",@"Random",@"Search",@"Security",nil];
+    }
+    
     
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j <3; ++j) {
@@ -73,7 +92,8 @@
     }
     [upButtonImageArray release];
     [downButtonImageArray release];
-    [self addAdWhirlAds];
+    //Remove Ad here in this version
+    //[self addAdWhirlAds];
 }
 
 - (void)viewDidUnload
@@ -96,7 +116,7 @@
 }
 
 - (NSString *)adWhirlApplicationKey {
-    return @"07b04fd1170d493fba092369b3acc960";
+    return ADWHIRL_ID_IPHONE;
 }
 
 - (UIViewController *)viewControllerForPresentingModalView {
@@ -131,47 +151,47 @@
     }else if(button.tag == 2){
         ItemViewController_iPhone *itemViewController = [[ItemViewController_iPhone alloc] initWithNibName:@"ItemViewController_iPhone" bundle:nil];
         itemViewController.startFlag = 11;
-        itemViewController.title = @"Favorite";
+        itemViewController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:itemViewController animated:YES];
         [itemViewController release];
     }else if(button.tag == 3){
         ItemViewController_iPhone *itemViewController = [[ItemViewController_iPhone alloc] initWithNibName:@"ItemViewController_iPhone" bundle:nil];
         itemViewController.startFlag = 10;
-        itemViewController.title = @"Top 10";
+        itemViewController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:itemViewController animated:YES];
         [itemViewController release];
     }else if(button.tag == 4){
         ItemViewController_iPhone *itemViewController = [[ItemViewController_iPhone alloc] initWithNibName:@"ItemViewController_iPhone" bundle:nil];
         itemViewController.startFlag = 12;
-        itemViewController.title = @"Tried";
+        itemViewController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:itemViewController animated:YES];
         [itemViewController release];
     }else if(button.tag == 5){
         ItemViewController_iPhone *itemViewController = [[ItemViewController_iPhone alloc] initWithNibName:@"ItemViewController_iPhone" bundle:nil];
         itemViewController.startFlag = 13;
-        itemViewController.title = @"Untried";
+        itemViewController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:itemViewController animated:YES];
         [itemViewController release];
     }else if(button.tag == 6){
         ItemViewController_iPhone *itemViewController = [[ItemViewController_iPhone alloc] initWithNibName:@"ItemViewController_iPhone" bundle:nil];
         itemViewController.startFlag = 14;
-        itemViewController.title = @"To do";
+        itemViewController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:itemViewController animated:YES];
         [itemViewController release];
     }else if(button.tag == 7){
         ItemShowController_iPhone *itemShowController = [[ItemShowController_iPhone alloc] initWithNibName:@"ItemShowController_iPhone" bundle:nil];
         itemShowController.startFlag = 1000;
-        itemShowController.title = @"Random";
+        itemShowController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:itemShowController animated:YES];
         [itemShowController release];
     }else if(button.tag == 8){
         SliderViewController_iPhone * sliderViewController = [[SliderViewController_iPhone alloc]initWithNibName:@"SliderViewController_iPhone" bundle:nil];
-        sliderViewController.title = @"Search";
+        sliderViewController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:sliderViewController animated:YES];
         [sliderViewController release];
     }else if(button.tag == 9){
         PasswordController_iPhone *settingViewController = [[PasswordController_iPhone alloc] initWithNibName:@"PasswordController_iPhone" bundle:nil];
-        settingViewController.title = @"Security";
+        settingViewController.title = [labelTitle objectAtIndex:button.tag - 1];
         [self.navigationController pushViewController:settingViewController animated:YES];
         [settingViewController release];
     }  
@@ -187,7 +207,7 @@
         [self.view addSubview:view];
         [view release];
         
-        UILabel *label = [Utils addLabelToView:CGRectMake(10, 10, 200, 20) :0 :@"Enter Password:" :14.0];
+        UILabel *label = [Utils addLabelToView:CGRectMake(10, 10, 200, 20) :0 :@"输入密码:" :14.0];
         label.textColor = [UIColor blackColor];
         label.textAlignment = UITextAlignmentLeft;
         [view addSubview:label];
@@ -202,14 +222,14 @@
         
         UIButton *okbuttom = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [okbuttom addTarget:self action:@selector(okButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [okbuttom setTitle:@"OK" forState:UIControlStateNormal];
+        [okbuttom setTitle:@"确定" forState:UIControlStateNormal];
         okbuttom.titleLabel.textColor = [UIColor blueColor];
         okbuttom.frame = CGRectMake(30, 80, 60, 30);
         [view addSubview:okbuttom];
         
         UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+        [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         cancelButton.titleLabel.textColor = [UIColor blueColor];
         cancelButton.frame = CGRectMake(130, 80, 60, 30);
         [view addSubview:cancelButton];        
@@ -227,10 +247,10 @@
         [self cleanPasswordView];
         [self initItems];
     }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Password!"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码错误"
                                                         message:nil
                                                        delegate:self 
-                                              cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
     }

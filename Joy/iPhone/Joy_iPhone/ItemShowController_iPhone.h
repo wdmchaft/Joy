@@ -11,9 +11,11 @@
 #import "SQLiteOperation.h"
 #import "Utils.h"
 #import "SQLData.h"
+#import "AdWhirlDelegateProtocol.h"
+#import "AdWhirlView.h"
 
 
-@interface ItemShowController_iPhone : UIViewController <AVAudioPlayerDelegate,UIScrollViewDelegate>{
+@interface ItemShowController_iPhone : UIViewController <AVAudioPlayerDelegate,UIScrollViewDelegate,AdWhirlDelegate>{
     UIScrollView *itemScrollView;
     NSMutableArray *content;
     NSInteger startFlag;
@@ -28,6 +30,9 @@
     NSTimer *timer;
     NSInteger iFlag;
     AVAudioPlayer *tapPlayer;
+    
+    BOOL didReceivedIdFlag;
+    
 }
 @property (nonatomic, retain) UIScrollView *itemScrollView;
 @property (nonatomic, retain) NSMutableArray *content;
@@ -50,4 +55,6 @@
 - (void) updateParamarray:(NSString *)sqlString;
 - (void) buttonImageShow;
 - (void) initSexImages;
+
+- (void) addAdWhirlAds;
 @end

@@ -12,8 +12,8 @@
 #import "SQLData.h"
 #import <MessageUI/MessageUI.h>
 #import <AVFoundation/AVFoundation.h>
-#import "MoreJokeController_iPhone.h"
-#import "SettingController_iPhone.h"
+#import "MoreJokeController_iPad.h"
+#import "SettingController_iPad.h"
 
 @interface CoverRootController_iPad : UIViewController <UIScrollViewDelegate,AVAudioPlayerDelegate,MFMailComposeViewControllerDelegate,UINavigationControllerDelegate>{
     //CateFlag is the flag to show which cate should init with.

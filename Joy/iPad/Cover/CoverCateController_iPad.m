@@ -45,6 +45,7 @@
     [self.view addSubview:topbarView];
     [topbarView release];
     
+    inapp = [[InAppPurchaseManager alloc] init];
     UILabel * topLabel = [Utils addCoverLabelToView:CGRectMake(0, 0, 768, 80) :0 :[UIColor clearColor] :@"Categories" :UITextAlignmentCenter :[UIColor blackColor]:[UIFont fontWithName:@"TrebuchetMS-Bold" size:30.0]];
     [self.view addSubview:topLabel];
     [topLabel release];
@@ -95,9 +96,54 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row > 5) {
+        [self manageIndappWithIndex:indexPath.row];
+    }else{
+        [self changeToItemViewControllerWithIndex:indexPath.row];
+    }
+}
+
+
+- (void)manageIndappWithIndex:(NSInteger)indexNum{
+    [inapp requestProUpgradeProductData];
+    BOOL isProUpgradePurchased = [[NSUserDefaults standardUserDefaults] boolForKey:@"isProUpgradePurchased"];
+    if(isProUpgradePurchased == NO){
+        BOOL Reachable = NO;
+        Reachability *reach = [Reachability reachabilityWithHostName:@"www.apple.com"];
+        NetworkStatus status = [reach currentReachabilityStatus];            
+        switch (status) {
+            case NotReachable:{
+                Reachable = NO;
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil 
+                                                                message:@"Network not available. Please check your settings or verify data service with your provider." 
+                                                               delegate:self 
+                                                      cancelButtonTitle:@"OK" 
+                                                      otherButtonTitles:nil];
+                [alert show];
+                [alert release];
+            }
+                break;
+            default:
+                Reachable = YES;
+                break;
+        }
+        if (Reachable == YES) {
+            if([inapp canMakePurchases])
+            {
+                [inapp loadStore];
+                [inapp purchaseProUpgrade];
+            }
+        }
+    }else{
+        [self changeToItemViewControllerWithIndex:indexNum];
+    }
+}
+
+- (void)changeToItemViewControllerWithIndex:(NSInteger)indexNum{
     CoverFavController_iPad * coverFavController  =   [[CoverFavController_iPad alloc] initWithNibName:@"CoverFavController_iPad" bundle:nil];
     coverFavController.tabBarFlag                   =   tabBarFlag;
-    coverFavController.cateFlag                     =   indexPath.row;
+    coverFavController.cateFlag                     =   indexNum;
     [self.navigationController pushViewController:coverFavController animated:YES];
     [coverFavController release];
 }

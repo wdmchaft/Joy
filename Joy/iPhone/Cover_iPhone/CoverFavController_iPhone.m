@@ -82,6 +82,26 @@
         [button addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
+    if (tabBarFlag == 3) {
+        self.navigationController.delegate = self;
+    }
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    
+    if (tabBarFlag == 3) {
+        jokeList = nil;
+        jokeList = [[SQLData sharedSQLData] getCoverFavoriteContentList];
+    }
+    [tbView reloadData];
+}
+
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (tabBarFlag == 3) {
+        jokeList = nil;
+        jokeList = [[SQLData sharedSQLData] getCoverFavoriteContentList];
+    }
+    [tbView reloadData];
 }
 
 - (void)viewDidUnload
@@ -108,7 +128,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     if (indexPath.row % 2 == 0) {
         [[cell contentView] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"GreyBar_Large.png"]]];
@@ -124,7 +144,7 @@
     cell.textLabel.text                 =   [[jokeList objectAtIndex:indexPath.row] objectAtIndex:1];
     cell.textLabel.numberOfLines        =   3;
     */ 
-    CLog(@"check if this done");
+    cell.backgroundColor                =   [UIColor clearColor];
     UILabel * label                     =   (UILabel *)[cell viewWithTag:10];
     if (label == nil) {
         UILabel * label                 =   [Utils addCoverLabelToView:CGRectMake(10, 0, 280, 70):10 :[UIColor clearColor] :[[jokeList objectAtIndex:indexPath.row] objectAtIndex:1] :UITextAlignmentLeft :[UIColor blackColor] :[UIFont fontWithName:@"TrebuchetMS-Bold" size:14]];
@@ -145,7 +165,6 @@
         
     }
     
-    CLog(@"%@", label.text);
     NSString * path                     =   [[NSBundle mainBundle] pathForResource:@"arrow" ofType:@"png"];
     UIImage * image                     =   [UIImage imageWithContentsOfFile:path];
     UIImageView * imageView             =   [Utils addCoverImageViewToView:CGRectMake(280, 20, 35, 35) :image :0 :1.0];

@@ -8,19 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "SQLiteOperation.h"
+
 #import "ItemViewController_iPhone.h"
 #import "Utils.h"
 #import "SQLData.h"
 #import "AdWhirlDelegateProtocol.h"
 #import "AdWhirlView.h"
-@class SQLiteOperation;
+#import "Reachability.h"
+#import "InAppPurchaseManager.h"
+
 @interface CategoryViewController_iPhone : UIViewController  <AVAudioPlayerDelegate,AdWhirlDelegate>{
-    SQLiteOperation *sqliteOperation;
     NSArray *category;
     AVAudioPlayer *tapPlayer;
+    InAppPurchaseManager    *   inapp;
 }
+
 - (void) initCategoryItem;
 - (void) addAdWhirlAds;
+
 @property (nonatomic, retain) AVAudioPlayer *tapPlayer;
+
+- (void) manageIndappWithIndex:(NSInteger)indexNum;
+- (void) changeToItemViewControllerWithIndex:(NSInteger)indexNum;
+
 @end

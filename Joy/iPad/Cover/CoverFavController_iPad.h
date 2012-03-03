@@ -11,7 +11,7 @@
 #import "Utils.h"
 #import "CoverRootController_iPad.h"
 
-@interface CoverFavController_iPad : UIViewController <UITableViewDelegate,UITableViewDataSource>{
+@interface CoverFavController_iPad : UIViewController <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>{
     //which category is choosen
     NSInteger           cateFlag;
     //which point of joke is choosen

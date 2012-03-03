@@ -75,7 +75,7 @@
         [setButton addTarget:self action:@selector(setButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:setButton];
     }else{
-        UIButton * button   =   [Utils addCoverButtonToView:UIButtonTypeCustom :CGRectMake(419, -5, 100, 100) :COVER_SHOW_INTERVAL-1 :[UIImage imageNamed:@"back_button_pressed@2x.png"] :nil];
+        UIButton * button   =   [Utils addCoverButtonToView:UIButtonTypeCustom :CGRectMake(249, -5, 100, 100) :COVER_SHOW_INTERVAL-1 :[UIImage imageNamed:@"back_button_pressed@2x.png"] :nil];
         [button addTarget:self action:@selector(rootBackButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
@@ -241,7 +241,7 @@
 
 - (void)moreButtonPressed{
     [self audioPlayerPlay];
-    MoreJokeController_iPhone * moreJokeController = [[MoreJokeController_iPhone alloc] initWithNibName:@"MoreJokeController_iPhone" bundle:nil];
+    MoreJokeController_iPad * moreJokeController = [[MoreJokeController_iPad alloc] initWithNibName:@"MoreJokeController_iPad" bundle:nil];
     CATransition * tran = [CATransition animation];
     tran.duration = .4f;
     tran.type = kCATransitionPush;
@@ -255,7 +255,7 @@
 
 - (void)setButtonPressed{
     [self audioPlayerPlay];
-    SettingController_iPhone * settingController = [[SettingController_iPhone alloc] initWithNibName:@"SettingController_iPhone" bundle:nil];
+    SettingController_iPad * settingController = [[SettingController_iPad alloc] initWithNibName:@"SettingController_iPad" bundle:nil];
     CATransition *animation = [CATransition animation];  
     animation.delegate = self;   
     animation.duration = 0.5f;   

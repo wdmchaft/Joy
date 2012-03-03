@@ -7,19 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MobClick.h"
+#import "Utils.h"
 
-@interface JoyAppDelegate : NSObject <UIApplicationDelegate> {
+@interface JoyAppDelegate : NSObject <UIApplicationDelegate,MobClickDelegate> {
     NSInteger COVER_SLIDER_VALUE;   //used as whole var in cover setting page
     BOOL COVER_SOUND_FLAG;          //used as whole car in cover setting page
     NSInteger JOY_SOUND_FLAG;       //
     NSInteger JOY_PASSWORD_FLAG;    //      
     NSInteger RATE_TO_UNLOCK;       //
+    NSString * DATABASE_NAME;   //check if the language environment is us or ch, decide which database should be use
+    
+    NSInteger SCROLLVIEW_HEIGHT;
+    NSInteger SCROLLVIEW_HEIGHT_F;
+    NSInteger IMAGEVIEW_HEIGHT;
+    NSInteger TEXTVIEW_HEIGHT;
+    NSInteger BUTTONVIEW_HEIGHT;
 }
 @property (nonatomic) NSInteger COVER_SLIDER_VALUE;
 @property (nonatomic) BOOL COVER_SOUND_FLAG;
 @property NSInteger JOY_SOUND_FLAG;
 @property NSInteger JOY_PASSWORD_FLAG;
 @property NSInteger RATE_TO_UNLOCK;
+@property NSString * DATABASE_NAME;
+@property NSInteger SCROLLVIEW_HEIGHT;
+@property NSInteger IMAGEVIEW_HEIGHT;
+@property NSInteger TEXTVIEW_HEIGHT;
+@property NSInteger BUTTONVIEW_HEIGHT; 
+@property NSInteger SCROLLVIEW_HEIGHT_F;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 

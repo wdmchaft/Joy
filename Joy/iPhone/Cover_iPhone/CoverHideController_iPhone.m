@@ -90,6 +90,12 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    for (UIViewController * controller in [self.navigationController viewControllers]) {
+        [controller viewWillAppear:YES];
+    }
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

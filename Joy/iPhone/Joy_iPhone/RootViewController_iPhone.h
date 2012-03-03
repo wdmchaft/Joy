@@ -20,7 +20,7 @@
 #import "SliderViewController_iPhone.h"
 #import "AdWhirlDelegateProtocol.h"
 #import "AdWhirlView.h"
-@class SQLiteOperation;
+
 @interface RootViewController_iPhone : UIViewController <AVAudioPlayerDelegate,UITextFieldDelegate,AdWhirlDelegate>{
     NSArray         *       labelTitle;
     AVAudioPlayer   *       tapPlayer;

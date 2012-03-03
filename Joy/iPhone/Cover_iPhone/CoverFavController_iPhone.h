@@ -12,7 +12,7 @@
 #import "CoverRootController_iPhone.h"
 
 
-@interface CoverFavController_iPhone : UIViewController <UITableViewDelegate,UITableViewDataSource>{
+@interface CoverFavController_iPhone : UIViewController <UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>{
     //which category is choosen
     NSInteger           cateFlag;
     //which point of joke is choosen

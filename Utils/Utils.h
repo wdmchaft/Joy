@@ -12,7 +12,9 @@
 #import "JoyAppDelegate.h"
 //COVER_SHOW_INTERVAL define the tag gap of the control target in scrollView 
 #define COVER_SHOW_INTERVAL 20000
-#define RATE_STRING @""
+#define RATE_STRING         @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=507355366"
+#define SELF_AD_URL         @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=507343235"
+
 #define Background_iPhone   @"Item_background.jpg"
 #define Background_iPad     @"blackbackground_ipad.jpg"
 #define ITEM_BK_PHONE       @"btn_report.png"
@@ -22,9 +24,21 @@
 #define ButtonStared        @"starred.png"
 #define ButtonTodo          @"todo.png"
 #define ButtonTodoed        @"todoed.png"
-#define LevelStar           @"level_start.png"
+#define LevelStar           @"level_start"
 #define TapPlayFileName     @"tap.mp3"
 #define ScrollDetails       @"scrolldetail.png"
+
+#define COVER_PAGE_IPHONE   @"iphone_splash.jpg"
+#define COVER_PAGE_IPAD     @"ipad_splash.jpg"    
+
+#define DATABASE_US         @"SexDatabase_US.sqlite"
+#define DATABASE_CH         @"SexDatabase_CH.sqlite"
+
+#define YOUMENG_MOB_ID      @"4efc1f915270154c39000008"
+#define ADWHIRL_ID_IPHONE   @"1b0207f0e1f6403aa670653b39cbc8b1"
+#define ADWHIRL_ID_IPAD     @"b80d9bd0340e4bf8a4bdd8691c71931c"
+
+
 
 @interface Utils : NSObject <MFMailComposeViewControllerDelegate>{
     

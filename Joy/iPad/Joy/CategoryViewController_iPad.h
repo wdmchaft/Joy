@@ -14,12 +14,18 @@
 #import "ItemViewController_iPad.h"
 #import "AdWhirlDelegateProtocol.h"
 #import "AdWhirlView.h"
+#import "Reachability.h"
+#import "InAppPurchaseManager.h"
 
 @interface CategoryViewController_iPad : UIViewController <AVAudioPlayerDelegate,AdWhirlDelegate>{
-    NSArray *category;
-    AVAudioPlayer *tapPlayer;
+    NSArray                 *   category;
+    AVAudioPlayer           *   tapPlayer;
+    InAppPurchaseManager    *   inapp;
 }
 - (void) initCategoryItem;
 - (void) addAdWhirlAds;
 @property (nonatomic, retain) AVAudioPlayer *tapPlayer;
+
+- (void) manageIndappWithIndex:(NSInteger)indexNum;
+- (void) changeToItemViewControllerWithIndex:(NSInteger)indexNum;
 @end

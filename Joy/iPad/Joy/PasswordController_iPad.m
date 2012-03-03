@@ -66,10 +66,10 @@
     NSString *password = passwdField.text;
     NSString *confirm = confirmField.text;
     if ([password length] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail"
-                                                        message:@"The password field cannot be empty"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"失败"
+                                                        message:@"密码不为空!"
                                                        delegate:self 
-                                              cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
     }else{
@@ -79,17 +79,17 @@
             [[SQLData sharedSQLData] updatePasswordWithString:password];    
             JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
             appDelegate.JOY_PASSWORD_FLAG = 0;
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"设置成功"
                                                             message:nil
                                                            delegate:self 
-                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                  cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
         }else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail"
-                                                            message:@"Password did not match!"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"失败"
+                                                            message:@"两次的输入不匹配!"
                                                            delegate:self 
-                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                                                  cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
         }

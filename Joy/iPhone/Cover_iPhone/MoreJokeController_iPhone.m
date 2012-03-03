@@ -129,15 +129,19 @@
 }
 
 - (void)F_ButtonPressed{
-
+    [[UIApplication sharedApplication] 
+     openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=358344319"]];
+    
 }
 
 - (void)S_ButtonPressed{
-
+    [[UIApplication sharedApplication] 
+     openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=411273429"]];
 }
 
 - (void)T_ButtonPressed{
-
+    [[UIApplication sharedApplication] 
+     openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=417181914"]];
 }
 
 - (void) audioPlayerPlay{

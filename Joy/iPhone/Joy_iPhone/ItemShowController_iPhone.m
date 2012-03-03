@@ -17,6 +17,7 @@
 @synthesize sexImages;
 @synthesize timer;
 @synthesize tapPlayer;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,6 +37,7 @@
     }
     [Utils stopSoundPlayer:tapPlayer];
     [imageArray release];
+    [itemScrollView release];
     [sexImages release];
     [content release];
     [super dealloc];
@@ -54,11 +56,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Item_background.jpg"]]];
-    UILabel *leftLabel = [Utils addLabelToView:CGRectMake(20, 10, 100, 20) :0 :@"Pleasure" :12.0];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:Background_iPhone]]];
+    UILabel * leftLabel     = nil;
+    UILabel * rightLabel    = nil;
+    JoyAppDelegate * appDelegate    = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([appDelegate.DATABASE_NAME isEqualToString:DATABASE_CH]) {
+        leftLabel = [Utils addLabelToView:CGRectMake(20, 10, 100, 20) :0 :@"挑战性" :12.0];
+        rightLabel = [Utils addLabelToView:CGRectMake(200, 10, 100, 20) :0 :@"趣味性" :12.0];
+    }else{
+        leftLabel = [Utils addLabelToView:CGRectMake(20, 10, 100, 20) :0 :@"Pleasure" :12.0];
+        rightLabel = [Utils addLabelToView:CGRectMake(200, 10, 100, 20) :0 :@"Challenge" :12.0];
+    }
+    didReceivedIdFlag = NO;
     [self.view addSubview:leftLabel];
     [leftLabel release];
-    UILabel *rightLabel = [Utils addLabelToView:CGRectMake(200, 10, 100, 20) :0 :@"Challenge" :12.0];
     [self.view addSubview:rightLabel];
     [rightLabel release];
     iFlag = 0;
@@ -67,7 +78,17 @@
     
     if (startFlag == 1000 ) {
         content = [[NSMutableArray alloc] initWithCapacity:10];
-        NSArray * randomContent = [[SQLData sharedSQLData] getSelectAllInfoList];
+        NSArray * randomContent = nil;
+        /*
+         *If custom has already purchased this product, running getSelectUnDoneInfoList Part;
+         *else running getSelectUnDoneInfoListWithoutPurchase.
+         */
+        BOOL isProUpgradePurchased = [[NSUserDefaults standardUserDefaults] boolForKey:@"isProUpgradePurchased"];
+        if(isProUpgradePurchased == NO){
+            randomContent = [[SQLData sharedSQLData] getSelectUnDoneInfoListWithoutPurchase];
+        }else{
+            randomContent = [[SQLData sharedSQLData] getSelectAllInfoListWithoutPurchase];
+        }
         for (int i = 0; i < 30; i++) {
             [content addObject:[randomContent objectAtIndex:arc4random()%[randomContent count]]];
         }
@@ -85,7 +106,58 @@
     [self textViewTextShow];
     [self startPlayAnimation];
     [self buttonImageShow];
+    BOOL isProUpgradePurchased = [[NSUserDefaults standardUserDefaults] boolForKey:@"isProUpgradePurchased"];
+    if(isProUpgradePurchased == NO){
+        [self addAdWhirlAds];
+        NSTimer * shouldSelfBoardShow = [NSTimer scheduledTimerWithTimeInterval: 10.0
+                                                                         target: self
+                                                                       selector: @selector(shouldSelfBoardShowTimer:)
+                                                                       userInfo: nil
+                                                                        repeats: NO];
+    }    
 }
+
+/*
+ *Last three method is used for adwhirl
+ */
+
+- (void)addAdWhirlAds{
+    AdWhirlView *adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
+    adWhirlView.frame = CGRectMake(0, 385, 320, 50);
+    adWhirlView.delegate = self;  
+    [[adWhirlView layer] setMasksToBounds:YES];
+    [[adWhirlView layer] setCornerRadius:15.0];
+    [[adWhirlView layer] setBorderWidth:0.0];
+    [adWhirlView rotateToOrientation:UIInterfaceOrientationPortrait];
+    [self.view addSubview:adWhirlView];
+}
+
+- (NSString *)adWhirlApplicationKey {
+    return ADWHIRL_ID_IPHONE;
+}
+
+- (UIViewController *)viewControllerForPresentingModalView {
+    return self;
+}
+- (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView { 
+    didReceivedIdFlag = YES;
+} 
+
+- (void) shouldSelfBoardShowTimer: (NSTimer *) adTimer{
+    if (didReceivedIdFlag == NO) {
+        UIButton * boardButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(0, 385, 320, 50) :0 :[UIImage imageNamed:@"showboard_iphone_ch"] :[UIImage imageNamed:@"showboard_iphone_ch"]];
+        [boardButton addTarget:self action:@selector(boardButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:boardButton];
+    }
+}
+
+- (void)boardButtonPressed{
+    [[UIApplication sharedApplication] 
+     openURL:[NSURL URLWithString:SELF_AD_URL]];
+}
+/*
+ *
+ */
 
 - (void) initSexImages{
     sexImages = [[[SQLData sharedSQLData] getSelectImageInfoList] retain]; 
@@ -105,48 +177,49 @@
 }
 
 - (void) initScrollView{
-    itemScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 320, 260)];
+    JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    itemScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, appDelegate.SCROLLVIEW_HEIGHT, 320, appDelegate.SCROLLVIEW_HEIGHT_F)];
     for (int i = 0; i < [content count]; ++i) {
-        UIImageView *imageView = [Utils addImageViewToViewWithoutImage:CGRectMake(40+320*i, 0, 240, 260) :100+i];
+        UIImageView *imageView = [Utils addImageViewToViewWithoutImage:CGRectMake(40+320*i, 0, 240, 240) :100+i];
         [itemScrollView addSubview:imageView];
         [imageView release];
     }        
-    itemScrollView.contentSize = CGSizeMake(320*[content count], 260); 
+    itemScrollView.contentSize = CGSizeMake(320*[content count], appDelegate.SCROLLVIEW_HEIGHT_F); 
     itemScrollView.showsVerticalScrollIndicator = NO;  
     itemScrollView.showsHorizontalScrollIndicator = NO;  
     itemScrollView.userInteractionEnabled = YES;  
     itemScrollView.pagingEnabled = YES;
     itemScrollView.delegate = self;
     [self.view addSubview:itemScrollView];
-    [itemScrollView release];
 }
 
 - (void) initTextViewAndButton{
-    UIImageView *backImage = [Utils addImageViewToView:CGRectMake(0, 285, 320, 120) :50 :[UIImage imageNamed:@"scrolldetail.png"]];
+    JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIImageView *backImage = [Utils addImageViewToView:CGRectMake(0, appDelegate.IMAGEVIEW_HEIGHT, 320, 150) :50 :[UIImage imageNamed:@"scrolldetail.png"]];
     [self.view addSubview:backImage];
     [backImage release];
-    textView = [Utils addTextViewToView:CGRectMake(20, 300, 280, 90) :0 :13.0 :[UIColor clearColor] :[UIColor blackColor]];
+    textView = [Utils addTextViewToView:CGRectMake(20, appDelegate.TEXTVIEW_HEIGHT, 280, 90) :0 :13.0 :[UIColor clearColor] :[UIColor blackColor]];
     [self.view addSubview:textView];
     [textView release];
-    triedButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(0, 390, 100, 40) :0 :[UIImage imageNamed:@"check.png"]:[UIImage imageNamed:@"check.png"]];
+    triedButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(0, appDelegate.BUTTONVIEW_HEIGHT, 100, 40) :0 :[UIImage imageNamed:@"check.png"]:[UIImage imageNamed:@"check.png"]];
     [triedButton addTarget:self action:@selector(triedButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:triedButton];
-    starButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(110, 390, 100, 40) :0 :[UIImage imageNamed:@"star.png"]:[UIImage imageNamed:@"star.png"]];
+    starButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(110, appDelegate.BUTTONVIEW_HEIGHT, 100, 40) :0 :[UIImage imageNamed:@"star.png"]:[UIImage imageNamed:@"star.png"]];
     [starButton addTarget:self action:@selector(starButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:starButton];
-    todoButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(220, 390, 100, 40) :0 :[UIImage imageNamed:@"todo.png"]:[UIImage imageNamed:@"todo.png"]];
+    todoButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(220, appDelegate.BUTTONVIEW_HEIGHT, 100, 40) :0 :[UIImage imageNamed:@"todo.png"]:[UIImage imageNamed:@"todo.png"]];
     [todoButton addTarget:self action:@selector(todoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:todoButton];
     
-    UILabel *triedLabel = [Utils addButtonLabelToView:CGRectMake(0,390,60,40) :0 :@"Tried" :15.0 :[UIColor yellowColor]];
+    UILabel *triedLabel = [Utils addButtonLabelToView:CGRectMake(0,appDelegate.BUTTONVIEW_HEIGHT,60,40) :0 :@"已尝试" :15.0 :[UIColor yellowColor]];
     [self.view addSubview:triedLabel];
     [triedLabel release];
     
-    UILabel *starLabel = [Utils addButtonLabelToView:CGRectMake(110, 390, 60, 40) :0 :@"Star" :15.0 :[UIColor yellowColor]];
+    UILabel *starLabel = [Utils addButtonLabelToView:CGRectMake(110, appDelegate.BUTTONVIEW_HEIGHT, 60, 40) :0 :@"喜欢" :15.0 :[UIColor yellowColor]];
     [self.view addSubview:starLabel];
     [starLabel release];
     
-    UILabel *todoLabel = [Utils addButtonLabelToView:CGRectMake(220, 390, 60, 40) :0 :@"To do" :15.0 :[UIColor yellowColor]];
+    UILabel *todoLabel = [Utils addButtonLabelToView:CGRectMake(220, appDelegate.BUTTONVIEW_HEIGHT, 60, 40) :0 :@"待尝试" :15.0 :[UIColor yellowColor]];
     [self.view addSubview:todoLabel];
     [todoLabel release];
 }
