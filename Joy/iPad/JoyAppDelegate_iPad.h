@@ -17,7 +17,7 @@
     UINavigationController  *   navigationController;
 }
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-
+@property (nonatomic, retain) UINavigationController *navigationController;
 - (void) makeSureWhichControllerShouldBeOpen;
 - (void) coverControllerShouldOpen;
 - (void) joyControllerShouldOpen;

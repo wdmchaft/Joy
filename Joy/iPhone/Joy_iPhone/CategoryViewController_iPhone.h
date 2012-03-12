@@ -18,8 +18,8 @@
 #import "InAppPurchaseManager.h"
 
 @interface CategoryViewController_iPhone : UIViewController  <AVAudioPlayerDelegate,AdWhirlDelegate>{
-    NSArray *category;
-    AVAudioPlayer *tapPlayer;
+    NSArray                 *   category;
+    AVAudioPlayer           *   tapPlayer;
     InAppPurchaseManager    *   inapp;
 }
 

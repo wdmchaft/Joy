@@ -12,8 +12,11 @@
 #import "Utils.h"
 #import "AdWhirlDelegateProtocol.h"
 #import "AdWhirlView.h"
+#import "UserDefaultKeySet.h"
+#import "ShareViewController_iPad.h"
+#import "GADBannerView.h"
 
-@interface ItemShowController_iPad : UIViewController <AVAudioPlayerDelegate,UIScrollViewDelegate,AdWhirlDelegate>{
+@interface ItemShowController_iPad : UIViewController <AVAudioPlayerDelegate,UIScrollViewDelegate,AdWhirlDelegate,GADBannerViewDelegate>{
     UIScrollView *itemScrollView;
     NSMutableArray *content;
     NSInteger startFlag;
@@ -29,6 +32,7 @@
     NSInteger iFlag;
     AVAudioPlayer *tapPlayer;
     BOOL didReceivedIdFlag;
+    GADBannerView *bannerView_;
 }
 @property (nonatomic, retain) UIScrollView *itemScrollView;
 @property (nonatomic, retain) NSMutableArray *content;

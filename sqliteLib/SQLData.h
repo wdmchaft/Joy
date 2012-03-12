@@ -59,6 +59,8 @@
 - (NSMutableArray *)   getSelectInfoBySliderWithSqlString:(NSString *)sqlString; 
 - (NSMutableArray *)   getSelectUnDoneInfoListWithoutPurchase;
 - (NSMutableArray *)   getSelectAllInfoListWithoutPurchase; 
+- (NSInteger)   getSelectTriedNumOfParts:(NSString *)index; 
+- (NSInteger)   getSelectTriedSumNum;
 
 - (BOOL)        updateParamarrayWithSqlString:(NSString *)sqlString withIndex:(NSString *)indexNum;
 - (BOOL)        updatePasswordFlag;

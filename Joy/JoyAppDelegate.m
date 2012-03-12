@@ -21,6 +21,9 @@
 @synthesize TEXTVIEW_HEIGHT;
 @synthesize BUTTONVIEW_HEIGHT;
 @synthesize SCROLLVIEW_HEIGHT_F;
+@synthesize SELF_AD_URL;
+@synthesize ADMOB_ID_IPHONE;
+@synthesize ADMOB_ID_IPAD;
 
 @synthesize window=_window;
 
@@ -81,6 +84,9 @@
 - (void)dealloc
 {
     [DATABASE_NAME release];
+    [SELF_AD_URL release];
+    [ADMOB_ID_IPHONE release];
+    [ADMOB_ID_IPAD release];
     [_window release];
     [__managedObjectContext release];
     [__managedObjectModel release];

@@ -23,6 +23,10 @@
     NSInteger IMAGEVIEW_HEIGHT;
     NSInteger TEXTVIEW_HEIGHT;
     NSInteger BUTTONVIEW_HEIGHT;
+    
+    NSString * SELF_AD_URL;
+    NSString * ADMOB_ID_IPHONE;
+    NSString * ADMOB_ID_IPAD;
 }
 @property (nonatomic) NSInteger COVER_SLIDER_VALUE;
 @property (nonatomic) BOOL COVER_SOUND_FLAG;
@@ -35,6 +39,9 @@
 @property NSInteger TEXTVIEW_HEIGHT;
 @property NSInteger BUTTONVIEW_HEIGHT; 
 @property NSInteger SCROLLVIEW_HEIGHT_F;
+@property (nonatomic, retain) NSString * SELF_AD_URL;
+@property (nonatomic, retain) NSString * ADMOB_ID_IPHONE;
+@property (nonatomic, retain) NSString * ADMOB_ID_IPAD;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 

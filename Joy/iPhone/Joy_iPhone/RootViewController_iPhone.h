@@ -16,10 +16,10 @@
 #import "SettingViewController_iPhone.h"
 #import "ItemViewController_iPhone.h"
 #import "ItemShowController_iPhone.h"
-//#import "PasswordController_iPhone.h"
 #import "SliderViewController_iPhone.h"
 #import "AdWhirlDelegateProtocol.h"
 #import "AdWhirlView.h"
+#import "ProgressBarController_iPhone.h"
 
 @interface RootViewController_iPhone : UIViewController <AVAudioPlayerDelegate,UITextFieldDelegate,AdWhirlDelegate>{
     NSArray         *       labelTitle;

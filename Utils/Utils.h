@@ -13,7 +13,7 @@
 //COVER_SHOW_INTERVAL define the tag gap of the control target in scrollView 
 #define COVER_SHOW_INTERVAL 20000
 #define RATE_STRING         @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=507355366"
-#define SELF_AD_URL         @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=507343235"
+#define SELF_AD_URL_HEAD         @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id="
 
 #define Background_iPhone   @"Item_background.jpg"
 #define Background_iPad     @"blackbackground_ipad.jpg"
@@ -37,6 +37,9 @@
 #define YOUMENG_MOB_ID      @"4efc1f915270154c39000008"
 #define ADWHIRL_ID_IPHONE   @"1b0207f0e1f6403aa670653b39cbc8b1"
 #define ADWHIRL_ID_IPAD     @"b80d9bd0340e4bf8a4bdd8691c71931c"
+
+#define COVER_OPEN_TIME     @"2012-03-23 00:00:00"
+
 
 
 
@@ -72,5 +75,7 @@
 + (AVAudioPlayer *) initSoundPlayer:(NSString *)soundFileName:(NSInteger)loopsNum;
 //stop a sound player
 + (void)stopSoundPlayer:(AVAudioPlayer *)player;
+
+
 
 @end

@@ -19,6 +19,7 @@
 #import "ItemShowController_iPad.h"
 #import "PasswordController_iPad.h"
 #import "SliderViewController_iPad.h"
+#import "ProgressBarController_iPad.h"
 
 @interface RootViewController_iPad : UIViewController <AVAudioPlayerDelegate,UITextFieldDelegate,AdWhirlDelegate>{
     NSArray *labelTitle;

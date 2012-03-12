@@ -65,7 +65,70 @@
 }
 
 + (NSString *)  getAdSignFromServer{
+    NSURL *url = [NSURL URLWithString:REQUEST_AD_URL];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [ASIHTTPRequest setDefaultTimeOutSeconds:3];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString * response = [request responseString];
+        response = [response stringByTrimmingCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+        return response;
+    }else{
+        NSString * response = @"491265501";
+        return response;
+    }  
+}
 
++ (BOOL)judgeNetworkReachability{
+    BOOL Reachable = NO;
+    Reachability *reach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+    NetworkStatus status = [reach currentReachabilityStatus];            
+    switch (status) {
+        case NotReachable:{
+            Reachable = NO;
+            break;
+        }            
+        default:
+            Reachable = YES;
+            break;
+    }
+    return Reachable;
+}
+/*
+ *main id is @"a14f50530315281" and @"a14f5053a7755c0"
+ *imergency id is @"a14f58684fe002c" and @"a14f5868a49d7f5"
+ *
+ */
++ (NSString *) getAdMobIdiPhoneFromServer{
+    NSURL *url = [NSURL URLWithString:ADMOB_ID_IPHONE_URL];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [ASIHTTPRequest setDefaultTimeOutSeconds:3];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString * response = [request responseString];
+        response = [response stringByTrimmingCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+        return response;
+    }else{
+        NSString * response = @"a14f58684fe002c";
+        return response;
+    }
+}
++ (NSString *) getAdMobIdiPadFromServer{
+    NSURL *url = [NSURL URLWithString:ADMOB_ID_IPAD_URL];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [ASIHTTPRequest setDefaultTimeOutSeconds:3];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        NSString * response = [request responseString];
+        response = [response stringByTrimmingCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+        return response;
+    }else{
+        NSString * response = @"a14f5868a49d7f5";
+        return response;
+    }
 }
 
 @end

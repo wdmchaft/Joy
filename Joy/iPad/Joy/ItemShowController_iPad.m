@@ -104,20 +104,42 @@
     [self textViewTextShow];
     [self startPlayAnimation];
     [self buttonImageShow];
+    
+    UIBarButtonItem  *  rightButton =   [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];          
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [rightButton release];
+    
     BOOL isProUpgradePurchased = [[NSUserDefaults standardUserDefaults] boolForKey:@"isProUpgradePurchased"];
     if(isProUpgradePurchased == NO){
-        [self addAdWhirlAds];
-        NSTimer * shouldSelfBoardShow = [NSTimer scheduledTimerWithTimeInterval: 10.0
-                                                                         target: self
-                                                                       selector: @selector(houldSelfBoardShowTimer:)
-                                                                       userInfo: nil
-                                                                        repeats: NO];
+        if ([UserDefaultKeySet judgeNetworkReachability] == YES) {
+            [self addAdWhirlAds];
+            NSTimer * shouldSelfBoardShow = [NSTimer scheduledTimerWithTimeInterval: 10.0
+                                                                             target: self
+                                                                           selector: @selector(houldSelfBoardShowTimer:)
+                                                                           userInfo: nil
+                                                                            repeats: NO];
+        }
     } 
 }
 
+/*
+ *share methord 
+ */
+- (void)rightButtonPressed:(id)rightSender{
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, YES, 0);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *uiImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.navigationController setToolbarHidden:NO];
+    self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+    ShareViewController_iPad * shareViewController  = [[[ShareViewController_iPad alloc] initWithNibName:nil bundle:nil] autorelease];
+    shareViewController.imageView = [[UIImageView alloc] initWithImage:uiImage];
+    [self.navigationController pushViewController:shareViewController animated:YES];
+}
+
 - (void)boardButtonPressed{
-    [[UIApplication sharedApplication] 
-     openURL:[NSURL URLWithString:SELF_AD_URL]];
+    JoyAppDelegate * appDelegate    = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appDelegate.SELF_AD_URL]];
 }
 
 - (void)viewDidUnload
@@ -136,6 +158,7 @@
  *The three method next is use for ad
  */
 - (void)addAdWhirlAds{
+    /*
     AdWhirlView *adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
     adWhirlView.frame = CGRectMake(0, 890, 768, 90);
     adWhirlView.delegate = self;
@@ -145,14 +168,35 @@
     [[adWhirlView layer] setBorderWidth:0.0];
     [adWhirlView rotateToOrientation:UIInterfaceOrientationPortrait];
     [self.view addSubview:adWhirlView];
+     */
+    JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    bannerView_ = [[[GADBannerView alloc]  initWithFrame:CGRectMake(20, 890, GAD_SIZE_728x90.width, GAD_SIZE_728x90.height)] autorelease];
+    bannerView_.adUnitID = appDelegate.ADMOB_ID_IPAD;
+    bannerView_.rootViewController = self;
+    bannerView_.delegate = self;
+    [[bannerView_ layer] setMasksToBounds:YES];
+    [[bannerView_ layer] setCornerRadius:25.0];
+    [[bannerView_ layer] setBorderWidth:0.0];
+    
+    [self.view addSubview:bannerView_];
+    [bannerView_ loadRequest:[GADRequest request]];
 }
 
+/*
 - (NSString *)adWhirlApplicationKey {
     return ADWHIRL_ID_IPAD;
 }
 
 - (UIViewController *)viewControllerForPresentingModalView {
     return self;
+}
+ - (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView { 
+ didReceivedIdFlag = YES;
+ } 
+
+ */
+- (void)adViewDidReceiveAd:(GADBannerView *)adMobView{
+    didReceivedIdFlag = YES;
 }
 
 - (void) houldSelfBoardShowTimer: (NSTimer *) adTimer{
@@ -162,9 +206,6 @@
         [self.view addSubview:boardButton];
     }
 }
-- (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView { 
-    didReceivedIdFlag = YES;
-} 
 
 
 - (void) initLittleStartImageViewWithoutImage{

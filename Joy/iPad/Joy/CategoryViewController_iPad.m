@@ -51,6 +51,12 @@
 }
 
 - (void)purchaseSuccess{
+    JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.SCROLLVIEW_HEIGHT   =   150;
+    appDelegate.IMAGEVIEW_HEIGHT    =   650;
+    appDelegate.TEXTVIEW_HEIGHT     =   670;
+    appDelegate.BUTTONVIEW_HEIGHT   =   900;
+    appDelegate.SCROLLVIEW_HEIGHT_F =   500;
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"购买成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alertView show];
 }

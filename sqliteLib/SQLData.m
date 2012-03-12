@@ -54,7 +54,7 @@ GTMOBJECT_SINGLETON_BOILERPLATE(SQLData, sharedSQLData)
 }
 
 - (NSArray *)   getCategoryFlagList{
-    return [[[SQLiteOperation sharedSQLOpt] selectData:@"select id,name,picNmae,link from pose_category" resultColumns:4] retain];
+    return [[[SQLiteOperation sharedSQLOpt] selectData:@"select id,name,picNmae,link, sumNum from pose_category" resultColumns:5] retain];
 }
 - (NSMutableArray *)   getSelectTopTenInfoList{
     return [[[SQLiteOperation sharedSQLOpt] selectData:SelectTopInfo resultColumns:10] retain];
@@ -101,6 +101,15 @@ GTMOBJECT_SINGLETON_BOILERPLATE(SQLData, sharedSQLData)
 - (BOOL)        updatePasswordWithString:(NSString *)password{
     NSArray *paramarray = [[NSArray alloc] initWithObjects:password, nil];
     return [[SQLiteOperation sharedSQLOpt] dealData:UpdatePassword paramArray:paramarray];
+}
+
+- (NSInteger)   getSelectTriedNumOfParts:(NSString *)index{
+    NSArray * array = [[SQLiteOperation sharedSQLOpt] selectData:[NSString stringWithFormat: @"select count(*) from pose where isMarkDone = 1 and categoryId ='%@'", index] resultColumns:1];
+    return [[[array objectAtIndex:0] objectAtIndex:0] intValue];
+}
+- (NSInteger)   getSelectTriedSumNum{
+    NSArray * array = [[SQLiteOperation sharedSQLOpt] selectData:@"select count(*) from pose where isMarkDone = 1" resultColumns:1];
+    return [[[array objectAtIndex:0] objectAtIndex:0] intValue];
 }
 
 - (void)dealloc

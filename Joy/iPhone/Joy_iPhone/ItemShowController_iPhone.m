@@ -36,6 +36,7 @@
         [view removeFromSuperview];
     }
     [Utils stopSoundPlayer:tapPlayer];
+    [bannerView_ release];
     [imageArray release];
     [itemScrollView release];
     [sexImages release];
@@ -99,22 +100,45 @@
     [self initScrollView];
     [self initTextViewAndButton];
     
-    UIImageView *initImageView = (UIImageView *)[self.itemScrollView viewWithTag:100+startFlag];    
+    UIImageView * initImageView = (UIImageView *)[self.itemScrollView viewWithTag:100+startFlag];    
     initImageView.image = [self findImage:startFlag];    
     [itemScrollView setContentOffset:CGPointMake(320*startFlag, 0) animated:NO];
     [self starShow];
     [self textViewTextShow];
     [self startPlayAnimation];
     [self buttonImageShow];
+    
+    UIBarButtonItem  *  rightButton =   [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];          
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [rightButton release];
+    
     BOOL isProUpgradePurchased = [[NSUserDefaults standardUserDefaults] boolForKey:@"isProUpgradePurchased"];
     if(isProUpgradePurchased == NO){
-        [self addAdWhirlAds];
-        NSTimer * shouldSelfBoardShow = [NSTimer scheduledTimerWithTimeInterval: 10.0
-                                                                         target: self
-                                                                       selector: @selector(shouldSelfBoardShowTimer:)
-                                                                       userInfo: nil
-                                                                        repeats: NO];
+        if ([UserDefaultKeySet judgeNetworkReachability] == YES) {
+            [self addAdWhirlAds];
+            NSTimer * shouldSelfBoardShow = [NSTimer scheduledTimerWithTimeInterval: 10.0
+                                                                             target: self
+                                                                           selector: @selector(shouldSelfBoardShowTimer:)
+                                                                           userInfo: nil
+                                                                            repeats: NO];
+        }        
     }    
+}
+
+
+/*
+ *share methord 
+ */
+- (void)rightButtonPressed:(id)rightSender{
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, YES, 0);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *uiImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.navigationController setToolbarHidden:NO];
+    self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+    ShareViewController_iPhone * shareViewController  = [[[ShareViewController_iPhone alloc] initWithNibName:nil bundle:nil] autorelease];
+    shareViewController.imageView = [[UIImageView alloc] initWithImage:uiImage];
+    [self.navigationController pushViewController:shareViewController animated:YES];
 }
 
 /*
@@ -122,6 +146,7 @@
  */
 
 - (void)addAdWhirlAds{
+    /*
     AdWhirlView *adWhirlView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
     adWhirlView.frame = CGRectMake(0, 385, 320, 50);
     adWhirlView.delegate = self;  
@@ -130,8 +155,27 @@
     [[adWhirlView layer] setBorderWidth:0.0];
     [adWhirlView rotateToOrientation:UIInterfaceOrientationPortrait];
     [self.view addSubview:adWhirlView];
+     */
+    JoyAppDelegate *appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    bannerView_ = [[GADBannerView alloc]  initWithFrame:CGRectMake(0.0, 385.0, GAD_SIZE_320x50.width, GAD_SIZE_320x50.height)];
+    bannerView_.adUnitID = appDelegate.ADMOB_ID_IPHONE;
+    bannerView_.rootViewController = self;
+    bannerView_.delegate = self;
+    [[bannerView_ layer] setMasksToBounds:YES];
+    [[bannerView_ layer] setCornerRadius:15.0];
+    [[bannerView_ layer] setBorderWidth:0.0];
+    
+    [self.view addSubview:bannerView_];
+    [bannerView_ loadRequest:[GADRequest request]];
+     
 }
-
+- (void)adViewDidReceiveAd:(GADBannerView *)adMobView{
+    didReceivedIdFlag = YES;
+}
+- (void)adView:(GADBannerView *)adMobView didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"Admob:didFailToReceiveAdWithError:%@", [error localizedFailureReason]);
+}
+/*
 - (NSString *)adWhirlApplicationKey {
     return ADWHIRL_ID_IPHONE;
 }
@@ -142,18 +186,19 @@
 - (void)adWhirlDidReceiveAd:(AdWhirlView *)adWhirlView { 
     didReceivedIdFlag = YES;
 } 
+ */
 
-- (void) shouldSelfBoardShowTimer: (NSTimer *) adTimer{
+- (void) shouldSelfBoardShowTimer: (NSTimer *) adTimer{    
     if (didReceivedIdFlag == NO) {
-        UIButton * boardButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(0, 385, 320, 50) :0 :[UIImage imageNamed:@"showboard_iphone_ch"] :[UIImage imageNamed:@"showboard_iphone_ch"]];
+        UIButton * boardButton = [Utils addButtonToView:UIButtonTypeCustom :CGRectMake(0, 385, 320, 50) :8 :[UIImage imageNamed:@"showboard_iphone_ch"] :[UIImage imageNamed:@"showboard_iphone_ch"]];
         [boardButton addTarget:self action:@selector(boardButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:boardButton];
     }
 }
 
 - (void)boardButtonPressed{
-    [[UIApplication sharedApplication] 
-     openURL:[NSURL URLWithString:SELF_AD_URL]];
+    JoyAppDelegate * appDelegate    = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appDelegate.SELF_AD_URL]];
 }
 /*
  *

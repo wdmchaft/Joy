@@ -43,9 +43,27 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:Background_iPad]];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"评分" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];          
+    UIBarButtonItem  *  rightButton =   [[UIBarButtonItem alloc] initWithTitle:@"等级" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];          
     self.navigationItem.rightBarButtonItem = rightButton;
     [rightButton release];
+    
+    UIBarButtonItem  *  leftButton  = [[UIBarButtonItem alloc] initWithTitle:@"评分" style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonPressed:)];          
+    self.navigationItem.leftBarButtonItem = leftButton;
+    [leftButton release];
+}
+
+- (void)leftButtonPressed:(id)leftSender{
+    JoyAppDelegate * appDelegate = (JoyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.RATE_TO_UNLOCK = 1;
+    [UserDefaultKeySet saveToUserDefaults:[NSString stringWithFormat:@"%d", 1] forKey:@"haveUserRated"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:RATE_STRING]];
+}
+
+- (void)rightButtonPressed:(id)rightSender{
+    ProgressBarController_iPad * progressController = [[ProgressBarController_iPad alloc] initWithNibName:@"ProgressBarController_iPad" bundle:nil];
+    progressController.title = @"性爱级别";
+    [self.navigationController pushViewController:progressController animated:YES];
+    [progressController release];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
